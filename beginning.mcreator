@@ -47,6 +47,15 @@
       "registry_name": "begwood"
     },
     {
+      "name": "BegDirt",
+      "type": "block",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beg_dirt"
+    },
+    {
       "name": "Begleaves",
       "type": "block",
       "sortid": 7,
@@ -64,7 +73,6 @@
       "block.beginning.beginningportalblock": "Beginningportalblock",
       "block.beginning.begwood": "Begwood",
       "block.beginning.begblock": "Begblock",
-      "block.beginning.begleaves": "Begleaves",
       "block.beginning.begbrick": "Begbrick"
     }
   },
