@@ -63,6 +63,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "begleaves"
+    },
+    {
+      "name": "Beginning",
+      "type": "tab",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning"
     }
   ],
   "variable_elements": [],
@@ -74,6 +83,7 @@
       "block.beginning.begwood": "Beginning Log",
       "block.beginning.begblock": "Beginning Block",
       "block.beginning.begleaves": "Beginning Leaves",
+      "itemGroup.tabbeginning": "Beginning",
       "block.beginning.beg_dirt": "Beginning Dirt",
       "block.beginning.begbrick": "Beginning Brick"
     }
