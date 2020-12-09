@@ -36,6 +36,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "begbrick"
+    },
+    {
+      "name": "Begwood",
+      "type": "block",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "begwood"
     }
   ],
   "variable_elements": [],
@@ -44,6 +53,7 @@
     "en_us": {
       "block.beginning.portal_inside_block": "Portal Inside Block",
       "block.beginning.beginningportalblock": "Beginningportalblock",
+      "block.beginning.begwood": "Begwood",
       "block.beginning.begblock": "Begblock",
       "block.beginning.begbrick": "Begbrick"
     }
