@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "beginning:blocks/wood",
-    "up": "beginning:blocks/wood",
+    "down": "beginning:blocks/begwoodtop",
+    "up": "beginning:blocks/begwoodtop",
     "north": "beginning:blocks/wood",
     "east": "beginning:blocks/wood",
     "south": "beginning:blocks/wood",
     "west": "beginning:blocks/wood",
-    "particle": "beginning:blocks/wood"
+    "particle": "beginning:blocks/begwoodtop"
   }
 }
