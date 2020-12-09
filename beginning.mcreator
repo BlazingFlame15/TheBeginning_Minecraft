@@ -9,12 +9,22 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "begblock"
+    },
+    {
+      "name": "Begportal",
+      "type": "block",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "begportal"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "block.beginning.begportal": "Begportal",
       "block.beginning.begblock": "Begblock"
     }
   },
