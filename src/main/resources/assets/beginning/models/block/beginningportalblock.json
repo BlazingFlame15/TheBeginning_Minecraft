@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "beginning:blocks/portalblocktop",
+    "up": "beginning:blocks/portalblockbotton",
+    "north": "beginning:blocks/portalblocktop",
+    "east": "beginning:blocks/portalblocktop",
+    "south": "beginning:blocks/portalblocktop",
+    "west": "beginning:blocks/portalblocktop",
+    "particle": "beginning:blocks/portalblocktop"
+  }
+}

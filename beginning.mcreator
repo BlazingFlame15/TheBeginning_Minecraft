@@ -11,20 +11,30 @@
       "registry_name": "begblock"
     },
     {
-      "name": "Begportal",
+      "name": "PortalInsideBlock",
       "type": "block",
-      "sortid": 2,
+      "sortid": 3,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "begportal"
+      "registry_name": "portal_inside_block"
+    },
+    {
+      "name": "Beginningportalblock",
+      "type": "block",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningportalblock"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "block.beginning.begportal": "Begportal",
+      "block.beginning.portal_inside_block": "Portal Inside Block",
+      "block.beginning.beginningportalblock": "Beginningportalblock",
       "block.beginning.begblock": "Begblock"
     }
   },

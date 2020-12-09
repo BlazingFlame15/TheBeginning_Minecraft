@@ -1,5 +1,5 @@
 {
-  "parent": "beginning:block/begportal",
+  "parent": "beginning:block/beginningportalblock",
   "display": {
     "thirdperson": {
       "rotation": [

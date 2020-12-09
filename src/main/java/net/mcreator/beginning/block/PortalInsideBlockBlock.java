@@ -2,7 +2,6 @@
 package net.mcreator.beginning.block;
 
 import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.common.ToolType;
 
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.item.ItemStack;
@@ -20,11 +19,11 @@ import java.util.List;
 import java.util.Collections;
 
 @BeginningModElements.ModElement.Tag
-public class BegportalBlock extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:begportal")
+public class PortalInsideBlockBlock extends BeginningModElements.ModElement {
+	@ObjectHolder("beginning:portal_inside_block")
 	public static final Block block = null;
-	public BegportalBlock(BeginningModElements instance) {
-		super(instance, 2);
+	public PortalInsideBlockBlock(BeginningModElements instance) {
+		super(instance, 3);
 	}
 
 	@Override
@@ -35,9 +34,8 @@ public class BegportalBlock extends BeginningModElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.field_226947_m_).hardnessAndResistance(-1, 3600000).lightValue(0)
-					.harvestLevel(1).harvestTool(ToolType.PICKAXE));
-			setRegistryName("begportal");
+			super(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.LANTERN).hardnessAndResistance(1f, 10f).lightValue(0));
+			setRegistryName("portal_inside_block");
 		}
 
 		@Override
