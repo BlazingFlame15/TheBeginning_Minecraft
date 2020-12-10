@@ -11,7 +11,6 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Hand;
@@ -83,11 +82,6 @@ public class BeginningsaplingBlock extends BeginningModElements.ModElement {
 		}
 
 		@Override
-		public ItemStack getPickBlock(BlockState state, RayTraceResult target, IBlockReader world, BlockPos pos, PlayerEntity player) {
-			return new ItemStack(BeginningsaplingBlock.block, (int) (1));
-		}
-
-		@Override
 		public MaterialColor getMaterialColor(BlockState state, IBlockReader blockAccess, BlockPos pos) {
 			return MaterialColor.FOLIAGE;
 		}
@@ -97,7 +91,7 @@ public class BeginningsaplingBlock extends BeginningModElements.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(BeginningsaplingBlock.block, (int) (1)));
+			return Collections.singletonList(new ItemStack(this, 1));
 		}
 
 		@Override

@@ -182,6 +182,44 @@
           }
         ]
       }
+    },
+    {
+      "name": "Begblock",
+      "type": "block",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "begdirt"
+    },
+    {
+      "name": "BeginningLeavesBlockDestroyedByPlayer",
+      "type": "procedure",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning_leaves_block_destroyed_by_player",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -189,16 +227,17 @@
   "language_map": {
     "en_us": {
       "block.beginning.beginning_grass": "Beginning Grass",
-      "block.beginning.portal_inside_block": "Portal Inside Block",
-      "block.beginning.beginning_brick": "Beginning Brick",
       "block.beginning.beginningportalblock": "Beginningportalblock",
       "item.beginning.beginningsaplingitem": "Beginning Sapling",
       "block.beginning.beginning_dirt": "Beginning Dirt",
       "block.beginning.beginning_wood": "Beginning Log",
-      "block.beginning.begblock": "Beginning Dirt",
       "itemGroup.tabbeginning": "Beginning",
-      "block.beginning.beginning_leaves": "Beginning Leaves",
-      "block.beginning.beginningsapling": "Beginningsapling"
+      "block.beginning.beginningsapling": "Beginningsapling",
+      "block.beginning.portal_inside_block": "Portal Inside Block",
+      "block.beginning.beginning_brick": "Beginning Brick",
+      "block.beginning.begblock": "Beginning Dirt",
+      "block.beginning.begdirt": "Beginning Dirt",
+      "block.beginning.beginning_leaves": "Beginning Leaves"
     }
   },
   "workspaceSettings": {
