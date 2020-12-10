@@ -51,7 +51,8 @@ public class BeginningsaplingBlock extends BeginningModElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.ROCK).sound(SoundType.PLANT).hardnessAndResistance(1f, 10f).lightValue(0).notSolid());
+			super(Block.Properties.create(Material.ROCK).sound(SoundType.PLANT).hardnessAndResistance(1f, 10f).lightValue(0).doesNotBlockMovement()
+					.notSolid());
 			setRegistryName("beginningsapling");
 		}
 
