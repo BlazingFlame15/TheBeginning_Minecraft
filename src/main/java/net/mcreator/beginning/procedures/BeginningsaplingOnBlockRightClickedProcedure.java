@@ -58,7 +58,7 @@ public class BeginningsaplingOnBlockRightClickedProcedure extends BeginningModEl
 		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 				.getItem() == new ItemStack(Items.BONE_MEAL, (int) (1)).getItem())) {
 			(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);
-			if ((Math.random() < 0.7)) {
+			if ((Math.random() < 0.25)) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 				if (!world.getWorld().isRemote) {
 					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
