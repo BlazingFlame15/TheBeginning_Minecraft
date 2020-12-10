@@ -3,7 +3,7 @@
   "_type": "block",
   "definition": {
     "texture": "jumble",
-    "textureTop": "jumble",
+    "textureTop": "beginningblocktop",
     "textureLeft": "jumble",
     "textureFront": "jumble",
     "textureRight": "jumble",
