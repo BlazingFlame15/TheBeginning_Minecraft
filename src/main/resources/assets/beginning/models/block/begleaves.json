@@ -1,12 +1,7 @@
 {
-  "parent": "block/cube",
+  "parent": "block/cube_all",
   "textures": {
-    "down": "beginning:blocks/begleaves",
-    "up": "beginning:blocks/begleaves",
-    "north": "beginning:blocks/begleaves",
-    "east": "beginning:blocks/begleaves",
-    "south": "beginning:blocks/begleaves",
-    "west": "beginning:blocks/begleaves",
+    "all": "beginning:blocks/begleaves",
     "particle": "beginning:blocks/begleaves"
   }
 }
