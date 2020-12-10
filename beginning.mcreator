@@ -131,6 +131,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "logs"
+    },
+    {
+      "name": "Leavestag",
+      "type": "tag",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "leavestag"
     }
   ],
   "variable_elements": [],
