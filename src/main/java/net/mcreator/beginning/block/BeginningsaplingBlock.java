@@ -31,6 +31,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
 import net.mcreator.beginning.procedures.BeginningsaplingtreeUpdateTickProcedure;
+import net.mcreator.beginning.procedures.BeginningsaplingOnBlockRightClickedProcedure;
+import net.mcreator.beginning.procedures.BeginningsaplingBlockAddedProcedure;
 import net.mcreator.beginning.itemgroup.BeginningItemGroup;
 import net.mcreator.beginning.BeginningModElements;
 
@@ -95,6 +97,22 @@ public class BeginningsaplingBlock extends BeginningModElements.ModElement {
 		}
 
 		@Override
+		public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean moving) {
+			super.onBlockAdded(state, world, pos, oldState, moving);
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				BeginningsaplingBlockAddedProcedure.executeProcedure($_dependencies);
+			}
+		}
+
+		@Override
 		public void tick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 			super.tick(state, world, pos, random);
 			int x = pos.getX();
@@ -141,11 +159,12 @@ public class BeginningsaplingBlock extends BeginningModElements.ModElement {
 			Direction direction = hit.getFace();
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				BeginningsaplingtreeUpdateTickProcedure.executeProcedure($_dependencies);
+				BeginningsaplingOnBlockRightClickedProcedure.executeProcedure($_dependencies);
 			}
 			return ActionResultType.SUCCESS;
 		}

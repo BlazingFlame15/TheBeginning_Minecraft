@@ -93,7 +93,10 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onRightClicked": {
-      "name": "BeginningsaplingtreeUpdateTick"
+      "name": "BeginningsaplingOnBlockRightClicked"
+    },
+    "onBlockAdded": {
+      "name": "BeginningsaplingBlockAdded"
     },
     "onTickUpdate": {
       "name": "BeginningsaplingtreeUpdateTick"

@@ -8,8 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Mirror;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 
 import net.mcreator.beginning.BeginningModElements;
 
@@ -47,29 +46,13 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		double diamonds = 0;
-		if ((!(world.getWorld().isRemote))) {
-			if (!world.getWorld().isRemote) {
-				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble("modidRandomGrowChance", 0);
-				world.getWorld().notifyBlockUpdate(_bp, _bs, _bs, 3);
-			}
-		}
-		if (((new Object() {
-			public double getValue(BlockPos pos, String tag) {
-				TileEntity tileEntity = world.getTileEntity(pos);
-				if (tileEntity != null)
-					return tileEntity.getTileData().getDouble(tag);
-				return -1;
-			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "modidRandomGrowChance")) >= 0.875)) {
+		if ((Math.random() < 0.001)) {
+			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			if (!world.getWorld().isRemote) {
 				Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-						.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_medium"));
+						.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_0_medium"));
 				if (template != null) {
-					template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)),
+					template.addBlocksToWorld(world, new BlockPos((int) x, (int) y, (int) z),
 							new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 				}
 			}
