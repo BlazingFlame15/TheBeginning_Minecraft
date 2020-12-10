@@ -291,6 +291,15 @@
           }
         ]
       }
+    },
+    {
+      "name": "Beginningbiome",
+      "type": "biome",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningbiome"
     }
   ],
   "variable_elements": [],
@@ -303,6 +312,7 @@
       "block.beginning.beginning_dirt": "Beginning Dirt",
       "block.beginning.beginning_wood": "Beginning Log",
       "itemGroup.tabbeginning": "Beginning",
+      "biome.beginning.beginningbiome": "Beginningbiome",
       "block.beginning.beginningsapling": "Beginningsapling",
       "block.beginning.portal_inside_block": "Portal Inside Block",
       "block.beginning.beginning_brick": "Beginning Brick",
