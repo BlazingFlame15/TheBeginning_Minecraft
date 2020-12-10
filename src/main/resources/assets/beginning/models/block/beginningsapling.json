@@ -1,0 +1,7 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "beginning:blocks/sapling3",
+    "particle": "beginning:blocks/sapling3"
+  }
+}

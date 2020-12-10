@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_glass_pane_side_alt",
+  "textures": {
+    "edge": "beginning:blocks/sapling2",
+    "pane": "beginning:blocks/sapling2"
+  }
+}

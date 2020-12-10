@@ -72,6 +72,27 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "beginning"
+    },
+    {
+      "name": "Beginningsapling",
+      "type": "block",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningsapling"
+    },
+    {
+      "name": "BeginningsaplingParticleSpawningCondition",
+      "type": "procedure",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningsapling_particle_spawning_condition",
+      "metadata": {
+        "dependencies": []
+      }
     }
   ],
   "variable_elements": [],
@@ -86,7 +107,8 @@
       "itemGroup.tabbeginning": "Beginning",
       "block.beginning.begdirt": "Beginning Dirt",
       "block.beginning.beg_dirt": "Beginning Grass",
-      "block.beginning.begbrick": "Beginning Brick"
+      "block.beginning.begbrick": "Beginning Brick",
+      "block.beginning.beginningsapling": "Beginningsapling"
     }
   },
   "workspaceSettings": {
