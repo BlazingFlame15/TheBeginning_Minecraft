@@ -26,8 +26,8 @@
     "Mz": 1.0,
     "name": "Beginningsapling",
     "specialInfo": [],
-    "hardness": 1.0,
-    "resistance": 10.0,
+    "hardness": 0.0,
+    "resistance": 0.0,
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
