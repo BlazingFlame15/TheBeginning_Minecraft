@@ -52,7 +52,7 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 				Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
 						.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_0_medium"));
 				if (template != null) {
-					template.addBlocksToWorld(world, new BlockPos((int) x, (int) y, (int) z),
+					template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)),
 							new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 				}
 			}
