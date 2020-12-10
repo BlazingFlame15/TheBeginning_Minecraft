@@ -131,6 +131,15 @@
           }
         ]
       }
+    },
+    {
+      "name": "Logs",
+      "type": "tag",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "logs"
     }
   ],
   "variable_elements": [],
