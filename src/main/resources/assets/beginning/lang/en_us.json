@@ -1,7 +1,9 @@
 {
   "block.beginning.portal_inside_block": "Portal Inside Block",
   "block.beginning.beginningportalblock": "Beginningportalblock",
-  "block.beginning.begwood": "Begwood",
-  "block.beginning.begblock": "Begblock",
-  "block.beginning.begbrick": "Begbrick"
+  "block.beginning.begwood": "Beginning Log",
+  "block.beginning.begblock": "Beginning Block",
+  "block.beginning.begleaves": "Beginning Leaves",
+  "block.beginning.beg_dirt": "Beginning Dirt",
+  "block.beginning.begbrick": "Beginning Brick"
 }
