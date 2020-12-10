@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "beginning:blocks/jumble",
+    "up": "beginning:blocks/jumble",
+    "north": "beginning:blocks/jumble",
+    "east": "beginning:blocks/jumble",
+    "south": "beginning:blocks/jumble",
+    "west": "beginning:blocks/jumble",
+    "particle": "beginning:blocks/jumble"
+  }
+}
