@@ -42,9 +42,8 @@ public class BeginningsaplingBlockAddedProcedure extends BeginningModElements.Mo
 		IWorld world = (IWorld) dependencies.get("world");
 		if ((!((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == BeginningGrassBlock.block.getDefaultState()
 				.getBlock()))) {
-			Block.spawnDrops(world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)), world.getWorld(),
-					new BlockPos((int) x, (int) y, (int) z));
-			world.destroyBlock(new BlockPos((int) x, (int) (y - 1), (int) z), false);
+			Block.spawnDrops(world.getBlockState(new BlockPos((int) x, (int) y, (int) z)), world.getWorld(), new BlockPos((int) x, (int) y, (int) z));
+			world.destroyBlock(new BlockPos((int) x, (int) y, (int) z), false);
 		}
 	}
 }
