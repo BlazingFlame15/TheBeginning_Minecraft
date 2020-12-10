@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "beginning:blocks/unnamed",
-    "up": "beginning:blocks/unnamed",
-    "north": "beginning:blocks/unnamed",
-    "east": "beginning:blocks/unnamed",
-    "south": "beginning:blocks/unnamed",
-    "west": "beginning:blocks/unnamed",
-    "particle": "beginning:blocks/unnamed"
+    "down": "beginning:blocks/jumble",
+    "up": "beginning:blocks/beginningblocktop",
+    "north": "beginning:blocks/beggrassside",
+    "east": "beginning:blocks/beggrassside",
+    "south": "beginning:blocks/beggrassside",
+    "west": "beginning:blocks/beggrassside",
+    "particle": "beginning:blocks/jumble"
   }
 }
