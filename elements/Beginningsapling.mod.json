@@ -35,7 +35,7 @@
     },
     "destroyTool": "Not specified",
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:Beginningsapling"
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
@@ -47,12 +47,12 @@
     "material": {
       "value": "PLANTS"
     },
-    "tickRate": 10,
-    "tickRandomly": false,
+    "tickRate": 20,
+    "tickRandomly": true,
     "isReplaceable": false,
-    "colorOnMap": "DEFAULT",
+    "colorOnMap": "FOLIAGE",
     "creativePickItem": {
-      "value": ""
+      "value": "CUSTOM:Beginningsapling"
     },
     "offsetType": "NONE",
     "aiPathNodeType": "DEFAULT",

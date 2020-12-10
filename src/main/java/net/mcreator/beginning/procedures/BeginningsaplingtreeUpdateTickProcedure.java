@@ -8,7 +8,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Mirror;
-import net.minecraft.block.Blocks;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.block.BlockState;
 
 import net.mcreator.beginning.BeginningModElements;
 
@@ -46,53 +47,30 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
 		double diamonds = 0;
-		diamonds = (double) (Math.random() * 3);
-		if (((diamonds) == 0)) {
-			if ((Math.random() < 0.01)) {
-				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-				if (!world.getWorld().isRemote) {
-					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-							.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_medium"));
-					if (template != null) {
-						template.addBlocksToWorld(world, new BlockPos((int) x, (int) y, (int) z),
-								new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
-					}
-				}
+		if ((!(world.getWorld().isRemote))) {
+			if (!world.getWorld().isRemote) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putDouble("modidRandomGrowChance", 0);
+				world.getWorld().notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if (((diamonds) == 1)) {
-			if ((Math.random() < 0.01)) {
-				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-				if (!world.getWorld().isRemote) {
-					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-							.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_big"));
-					if (template != null) {
-						template.addBlocksToWorld(world, new BlockPos((int) x, (int) y, (int) z),
-								new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
-					}
-				}
+		}
+		if (((new Object() {
+			public double getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
 			}
-		} else if (((diamonds) == 2)) {
-			if ((Math.random() < 0.01)) {
-				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-				if (!world.getWorld().isRemote) {
-					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-							.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_small"));
-					if (template != null) {
-						template.addBlocksToWorld(world, new BlockPos((int) x, (int) y, (int) z),
-								new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
-					}
-				}
-			}
-		} else if (((diamonds) == 3)) {
-			if ((Math.random() < 0.01)) {
-				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-				if (!world.getWorld().isRemote) {
-					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-							.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_tall"));
-					if (template != null) {
-						template.addBlocksToWorld(world, new BlockPos((int) x, (int) y, (int) z),
-								new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
-					}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "modidRandomGrowChance")) >= 0.875)) {
+			if (!world.getWorld().isRemote) {
+				Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
+						.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_medium"));
+				if (template != null) {
+					template.addBlocksToWorld(world, new BlockPos((int) (x - 3), (int) y, (int) (z - 3)),
+							new PlacementSettings().setRotation(Rotation.NONE).setMirror(Mirror.NONE).setChunk(null).setIgnoreEntities(false));
 				}
 			}
 		}
