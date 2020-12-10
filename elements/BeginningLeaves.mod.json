@@ -36,7 +36,7 @@
     },
     "destroyTool": "axe",
     "customDrop": {
-      "value": ""
+      "value": "CUSTOM:Beginningsapling"
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
