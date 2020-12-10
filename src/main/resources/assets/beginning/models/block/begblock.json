@@ -3,10 +3,10 @@
   "textures": {
     "down": "beginning:blocks/jumble",
     "up": "beginning:blocks/beginningblocktop",
-    "north": "beginning:blocks/jumble",
-    "east": "beginning:blocks/jumble",
-    "south": "beginning:blocks/jumble",
-    "west": "beginning:blocks/jumble",
+    "north": "beginning:blocks/beggrassside",
+    "east": "beginning:blocks/beggrassside",
+    "south": "beginning:blocks/beggrassside",
+    "west": "beginning:blocks/beggrassside",
     "particle": "beginning:blocks/jumble"
   }
 }
