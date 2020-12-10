@@ -92,6 +92,12 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "BeginningsaplingtreeUpdateTick"
+    },
+    "onTickUpdate": {
+      "name": "BeginningsaplingtreeUpdateTick"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

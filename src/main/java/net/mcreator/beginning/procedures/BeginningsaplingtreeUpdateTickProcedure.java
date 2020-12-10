@@ -1,32 +1,23 @@
 package net.mcreator.beginning.procedures;
 
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.player.BonemealEvent;
-import net.minecraftforge.common.MinecraftForge;
-
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.gen.feature.template.Template;
 import net.minecraft.world.gen.feature.template.PlacementSettings;
-import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Mirror;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.Blocks;
 
 import net.mcreator.beginning.BeginningModElements;
 
 import java.util.Map;
-import java.util.HashMap;
 
 @BeginningModElements.ModElement.Tag
 public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElements.ModElement {
 	public BeginningsaplingtreeUpdateTickProcedure(BeginningModElements instance) {
 		super(instance, 12);
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -57,7 +48,7 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 		double diamonds = 0;
 		diamonds = (double) (Math.random() * 3);
 		if (((diamonds) == 0)) {
-			if ((Math.random() < 0.5)) {
+			if ((Math.random() < 0.01)) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 				if (!world.getWorld().isRemote) {
 					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
@@ -69,7 +60,7 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 				}
 			}
 		} else if (((diamonds) == 1)) {
-			if ((Math.random() < 0.5)) {
+			if ((Math.random() < 0.01)) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 				if (!world.getWorld().isRemote) {
 					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
@@ -81,7 +72,7 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 				}
 			}
 		} else if (((diamonds) == 2)) {
-			if ((Math.random() < 0.5)) {
+			if ((Math.random() < 0.01)) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 				if (!world.getWorld().isRemote) {
 					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
@@ -93,7 +84,7 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 				}
 			}
 		} else if (((diamonds) == 3)) {
-			if ((Math.random() < 0.5)) {
+			if ((Math.random() < 0.01)) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 				if (!world.getWorld().isRemote) {
 					Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
@@ -105,24 +96,5 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 				}
 			}
 		}
-	}
-
-	@SubscribeEvent
-	public void onBonemeal(BonemealEvent event) {
-		PlayerEntity entity = event.getPlayer();
-		int i = event.getPos().getX();
-		int j = event.getPos().getY();
-		int k = event.getPos().getZ();
-		World world = event.getWorld();
-		ItemStack itemstack = event.getStack();
-		Map<String, Object> dependencies = new HashMap<>();
-		dependencies.put("x", i);
-		dependencies.put("y", j);
-		dependencies.put("z", k);
-		dependencies.put("world", world);
-		dependencies.put("itemstack", itemstack);
-		dependencies.put("entity", entity);
-		dependencies.put("event", event);
-		this.executeProcedure(dependencies);
 	}
 }
