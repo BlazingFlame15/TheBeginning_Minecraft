@@ -4,7 +4,7 @@
   "definition": {
     "name": "Beginning",
     "icon": {
-      "value": "CUSTOM:Begblock"
+      "value": "CUSTOM:BeginningDirt"
     },
     "showSearch": true
   }

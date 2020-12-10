@@ -29,11 +29,11 @@ import java.util.List;
 import java.util.Collections;
 
 @BeginningModElements.ModElement.Tag
-public class BegwoodBlock extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:begwood")
+public class BeginningWoodBlock extends BeginningModElements.ModElement {
+	@ObjectHolder("beginning:beginning_wood")
 	public static final Block block = null;
-	public BegwoodBlock(BeginningModElements instance) {
-		super(instance, 6);
+	public BeginningWoodBlock(BeginningModElements instance) {
+		super(instance, 18);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class BegwoodBlock extends BeginningModElements.ModElement {
 			super(Block.Properties.create(Material.WOOD).sound(SoundType.WOOD).hardnessAndResistance(2f, 10f).lightValue(0).harvestLevel(0)
 					.harvestTool(ToolType.AXE));
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.SOUTH));
-			setRegistryName("begwood");
+			setRegistryName("beginning_wood");
 		}
 
 		@Override

@@ -52,13 +52,13 @@ import java.util.List;
 import java.util.Collections;
 
 @BeginningModElements.ModElement.Tag
-public class BegleavesBlock extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:begleaves")
+public class BeginningLeavesBlock extends BeginningModElements.ModElement {
+	@ObjectHolder("beginning:beginning_leaves")
 	public static final Block block = null;
-	@ObjectHolder("beginning:begleaves")
+	@ObjectHolder("beginning:beginning_leaves")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
-	public BegleavesBlock(BeginningModElements instance) {
-		super(instance, 7);
+	public BeginningLeavesBlock(BeginningModElements instance) {
+		super(instance, 17);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -70,13 +70,13 @@ public class BegleavesBlock extends BeginningModElements.ModElement {
 
 	@SubscribeEvent
 	public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
-		event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("begleaves"));
+		event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("beginning_leaves"));
 	}
 	public static class CustomBlock extends LeavesBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.LEAVES).sound(SoundType.PLANT).hardnessAndResistance(0.2f, 1f).lightValue(0).harvestLevel(0)
 					.harvestTool(ToolType.AXE).notSolid());
-			setRegistryName("begleaves");
+			setRegistryName("beginning_leaves");
 		}
 
 		@Override
@@ -180,7 +180,7 @@ public class BegleavesBlock extends BeginningModElements.ModElement {
 
 		@Override
 		public ITextComponent getDefaultName() {
-			return new StringTextComponent("begleaves");
+			return new StringTextComponent("beginning_leaves");
 		}
 
 		@Override

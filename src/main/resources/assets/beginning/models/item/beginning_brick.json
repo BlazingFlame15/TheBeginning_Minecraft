@@ -1,5 +1,5 @@
 {
-  "parent": "beginning:block/begwood",
+  "parent": "beginning:block/beginning_brick",
   "display": {
     "thirdperson": {
       "rotation": [

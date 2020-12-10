@@ -19,11 +19,11 @@ import java.util.List;
 import java.util.Collections;
 
 @BeginningModElements.ModElement.Tag
-public class BegbrickBlock extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:begbrick")
+public class BeginningBrickBlock extends BeginningModElements.ModElement {
+	@ObjectHolder("beginning:beginning_brick")
 	public static final Block block = null;
-	public BegbrickBlock(BeginningModElements instance) {
-		super(instance, 5);
+	public BeginningBrickBlock(BeginningModElements instance) {
+		super(instance, 20);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class BegbrickBlock extends BeginningModElements.ModElement {
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.WOOL).sound(SoundType.CLOTH).hardnessAndResistance(0.5f, 10f).lightValue(0).slipperiness(1f));
-			setRegistryName("begbrick");
+			setRegistryName("beginning_brick");
 		}
 
 		@Override

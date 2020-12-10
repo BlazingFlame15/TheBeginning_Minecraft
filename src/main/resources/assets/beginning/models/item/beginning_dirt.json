@@ -1,5 +1,5 @@
 {
-  "parent": "beginning:block/begleaves",
+  "parent": "beginning:block/beginning_dirt",
   "display": {
     "thirdperson": {
       "rotation": [

@@ -2,15 +2,6 @@
   "id_map": {},
   "mod_elements": [
     {
-      "name": "Begblock",
-      "type": "block",
-      "sortid": 1,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "begdirt"
-    },
-    {
       "name": "PortalInsideBlock",
       "type": "block",
       "sortid": 3,
@@ -27,42 +18,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "beginningportalblock"
-    },
-    {
-      "name": "Begbrick",
-      "type": "block",
-      "sortid": 5,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "begbrick"
-    },
-    {
-      "name": "Begwood",
-      "type": "block",
-      "sortid": 6,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "begwood"
-    },
-    {
-      "name": "BegDirt",
-      "type": "block",
-      "sortid": 7,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "beg_dirt"
-    },
-    {
-      "name": "Begleaves",
-      "type": "block",
-      "sortid": 7,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "begleaves"
     },
     {
       "name": "Beginning",
@@ -140,22 +95,110 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "leavestag"
+    },
+    {
+      "name": "Beginningsaplingitem",
+      "type": "item",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningsaplingitem"
+    },
+    {
+      "name": "BeginningDirt",
+      "type": "block",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning_dirt"
+    },
+    {
+      "name": "BeginningLeaves",
+      "type": "block",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning_leaves"
+    },
+    {
+      "name": "BeginningWood",
+      "type": "block",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning_wood"
+    },
+    {
+      "name": "BeginningGrass",
+      "type": "block",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning_grass"
+    },
+    {
+      "name": "BeginningBrick",
+      "type": "block",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning_brick"
+    },
+    {
+      "name": "BeginningsaplingitemRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningsaplingitem_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "block.beginning.portal_inside_block": "Portal Inside Block",
+      "block.beginning.beginning_grass": "Beginning Grass",
       "block.beginning.beginningportalblock": "Beginningportalblock",
-      "block.beginning.begwood": "Beginning Log",
-      "block.beginning.begblock": "Beginning Dirt",
-      "block.beginning.begleaves": "Beginning Leaves",
+      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
+      "block.beginning.beginning_dirt": "Beginning Dirt",
+      "block.beginning.beginning_wood": "Beginning Log",
       "itemGroup.tabbeginning": "Beginning",
-      "block.beginning.begdirt": "Beginning Dirt",
-      "block.beginning.beg_dirt": "Beginning Grass",
-      "block.beginning.begbrick": "Beginning Brick",
-      "block.beginning.beginningsapling": "Beginningsapling"
+      "block.beginning.beginningsapling": "Beginningsapling",
+      "block.beginning.portal_inside_block": "Portal Inside Block",
+      "block.beginning.beginning_brick": "Beginning Brick",
+      "block.beginning.begblock": "Beginning Dirt",
+      "block.beginning.beginning_leaves": "Beginning Leaves"
     }
   },
   "workspaceSettings": {

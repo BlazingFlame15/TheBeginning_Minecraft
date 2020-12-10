@@ -1,5 +1,5 @@
 {
-  "parent": "beginning:block/beg_dirt",
+  "parent": "beginning:block/beginning_grass",
   "display": {
     "thirdperson": {
       "rotation": [

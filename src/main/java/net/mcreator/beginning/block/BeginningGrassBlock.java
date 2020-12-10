@@ -23,11 +23,11 @@ import java.util.List;
 import java.util.Collections;
 
 @BeginningModElements.ModElement.Tag
-public class BegDirtBlock extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:beg_dirt")
+public class BeginningGrassBlock extends BeginningModElements.ModElement {
+	@ObjectHolder("beginning:beginning_grass")
 	public static final Block block = null;
-	public BegDirtBlock(BeginningModElements instance) {
-		super(instance, 7);
+	public BeginningGrassBlock(BeginningModElements instance) {
+		super(instance, 19);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class BegDirtBlock extends BeginningModElements.ModElement {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ORGANIC).sound(SoundType.GROUND).hardnessAndResistance(0.6f, 0.6f).lightValue(0).harvestLevel(0)
 					.harvestTool(ToolType.SHOVEL));
-			setRegistryName("beg_dirt");
+			setRegistryName("beginning_grass");
 		}
 
 		@Override

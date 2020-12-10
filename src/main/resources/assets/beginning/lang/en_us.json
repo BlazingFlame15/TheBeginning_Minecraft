@@ -1,12 +1,13 @@
 {
-  "block.beginning.portal_inside_block": "Portal Inside Block",
+  "block.beginning.beginning_grass": "Beginning Grass",
   "block.beginning.beginningportalblock": "Beginningportalblock",
-  "block.beginning.begwood": "Beginning Log",
-  "block.beginning.begblock": "Beginning Dirt",
-  "block.beginning.begleaves": "Beginning Leaves",
+  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
+  "block.beginning.beginning_dirt": "Beginning Dirt",
+  "block.beginning.beginning_wood": "Beginning Log",
   "itemGroup.tabbeginning": "Beginning",
-  "block.beginning.begdirt": "Beginning Dirt",
-  "block.beginning.beg_dirt": "Beginning Grass",
-  "block.beginning.begbrick": "Beginning Brick",
-  "block.beginning.beginningsapling": "Beginningsapling"
+  "block.beginning.beginningsapling": "Beginningsapling",
+  "block.beginning.portal_inside_block": "Portal Inside Block",
+  "block.beginning.beginning_brick": "Beginning Brick",
+  "block.beginning.begblock": "Beginning Dirt",
+  "block.beginning.beginning_leaves": "Beginning Leaves"
 }

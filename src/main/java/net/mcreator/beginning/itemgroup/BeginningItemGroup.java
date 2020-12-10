@@ -7,7 +7,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 
-import net.mcreator.beginning.block.BegblockBlock;
+import net.mcreator.beginning.block.BeginningDirtBlock;
 import net.mcreator.beginning.BeginningModElements;
 
 @BeginningModElements.ModElement.Tag
@@ -22,7 +22,7 @@ public class BeginningItemGroup extends BeginningModElements.ModElement {
 			@OnlyIn(Dist.CLIENT)
 			@Override
 			public ItemStack createIcon() {
-				return new ItemStack(BegblockBlock.block, (int) (1));
+				return new ItemStack(BeginningDirtBlock.block, (int) (1));
 			}
 
 			@OnlyIn(Dist.CLIENT)
