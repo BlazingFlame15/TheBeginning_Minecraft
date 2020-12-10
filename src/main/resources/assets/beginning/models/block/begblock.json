@@ -2,11 +2,11 @@
   "parent": "block/cube",
   "textures": {
     "down": "beginning:blocks/jumble",
-    "up": "beginning:blocks/beginningblocktop",
-    "north": "beginning:blocks/beggrassside",
-    "east": "beginning:blocks/beggrassside",
-    "south": "beginning:blocks/beggrassside",
-    "west": "beginning:blocks/beggrassside",
+    "up": "beginning:blocks/jumble",
+    "north": "beginning:blocks/jumble",
+    "east": "beginning:blocks/jumble",
+    "south": "beginning:blocks/jumble",
+    "west": "beginning:blocks/jumble",
     "particle": "beginning:blocks/jumble"
   }
 }
