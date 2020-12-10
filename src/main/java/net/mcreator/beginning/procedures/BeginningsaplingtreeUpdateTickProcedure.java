@@ -80,7 +80,7 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 					}
 				}
 			}
-		} else if (((diamonds) == 3)) {
+		} else if (((diamonds) == 2)) {
 			if ((Math.random() < 0.5)) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 				if (!world.getWorld().isRemote) {
@@ -92,7 +92,7 @@ public class BeginningsaplingtreeUpdateTickProcedure extends BeginningModElement
 					}
 				}
 			}
-		} else if (((diamonds) == 9)) {
+		} else if (((diamonds) == 3)) {
 			if ((Math.random() < 0.5)) {
 				world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 				if (!world.getWorld().isRemote) {
