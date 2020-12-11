@@ -11,8 +11,8 @@ import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.biome.Biome;
 
+import net.mcreator.beginning.block.BeginningStoneBlock;
 import net.mcreator.beginning.block.BeginningGrassBlock;
-import net.mcreator.beginning.block.BeginningDirtBlock;
 import net.mcreator.beginning.BeginningModElements;
 
 @BeginningModElements.ModElement.Tag
@@ -34,9 +34,9 @@ public class BeginningbiomeBiome extends BeginningModElements.ModElement {
 	static class CustomBiome extends Biome {
 		public CustomBiome() {
 			super(new Biome.Builder().downfall(0.5f).depth(0.1f).scale(0.2f).temperature(0.5f).precipitation(Biome.RainType.RAIN)
-					.category(Biome.Category.NONE).waterColor(4159204).waterFogColor(329011)
+					.category(Biome.Category.NONE).waterColor(-10053121).waterFogColor(329011)
 					.surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BeginningGrassBlock.block.getDefaultState(),
-							BeginningDirtBlock.block.getDefaultState(), BeginningDirtBlock.block.getDefaultState())));
+							BeginningStoneBlock.block.getDefaultState(), BeginningStoneBlock.block.getDefaultState())));
 			setRegistryName("beginningbiome");
 			DefaultBiomeFeatures.addCarvers(this);
 			DefaultBiomeFeatures.addMonsterRooms(this);

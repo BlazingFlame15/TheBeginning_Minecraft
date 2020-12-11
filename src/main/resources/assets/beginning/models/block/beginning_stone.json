@@ -1,12 +1,12 @@
 {
   "parent": "block/cube",
   "textures": {
-    "down": "beginning:blocks/beginningstne",
-    "up": "beginning:blocks/beginningstne",
-    "north": "beginning:blocks/beginningstne",
-    "east": "beginning:blocks/beginningstne",
-    "south": "beginning:blocks/beginningstne",
-    "west": "beginning:blocks/beginningstne",
-    "particle": "beginning:blocks/beginningstne"
+    "down": "beginning:blocks/beginningstone",
+    "up": "beginning:blocks/beginningstone",
+    "north": "beginning:blocks/beginningstone",
+    "east": "beginning:blocks/beginningstone",
+    "south": "beginning:blocks/beginningstone",
+    "west": "beginning:blocks/beginningstone",
+    "particle": "beginning:blocks/beginningstone"
   }
 }

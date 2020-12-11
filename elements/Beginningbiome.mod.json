@@ -7,7 +7,7 @@
       "value": "CUSTOM:BeginningGrass"
     },
     "undergroundBlock": {
-      "value": "CUSTOM:BeginningDirt"
+      "value": "CUSTOM:BeginningStone"
     },
     "treeType": 0,
     "vanillaTreeType": "Default",
@@ -27,6 +27,10 @@
     },
     "airColor": {
       "value": -13108,
+      "falpha": 0.0
+    },
+    "waterColor": {
+      "value": -10053121,
       "falpha": 0.0
     },
     "treesPerChunk": 0,
