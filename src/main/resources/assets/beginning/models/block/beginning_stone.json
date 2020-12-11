@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "beginning:blocks/beginningstne",
+    "up": "beginning:blocks/beginningstne",
+    "north": "beginning:blocks/beginningstne",
+    "east": "beginning:blocks/beginningstne",
+    "south": "beginning:blocks/beginningstne",
+    "west": "beginning:blocks/beginningstne",
+    "particle": "beginning:blocks/beginningstne"
+  }
+}

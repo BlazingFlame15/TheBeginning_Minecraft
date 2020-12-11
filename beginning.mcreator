@@ -309,6 +309,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "the_beginning"
+    },
+    {
+      "name": "BeginningStone",
+      "type": "block",
+      "sortid": 27,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginning_stone"
     }
   ],
   "variable_elements": [],
@@ -328,7 +337,8 @@
       "block.beginning.begblock": "Beginning Dirt",
       "block.beginning.begdirt": "Beginning Dirt",
       "block.beginning.beginning_leaves": "Beginning Leaves",
-      "item.beginning.the_beginning": "Portal Key"
+      "item.beginning.the_beginning": "Portal Key",
+      "block.beginning.beginning_stone": "Beginning Stone"
     }
   },
   "workspaceSettings": {

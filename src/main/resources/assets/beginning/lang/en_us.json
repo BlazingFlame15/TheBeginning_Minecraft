@@ -11,5 +11,7 @@
   "block.beginning.beginning_brick": "Beginning Brick",
   "block.beginning.begblock": "Beginning Dirt",
   "block.beginning.begdirt": "Beginning Dirt",
-  "block.beginning.beginning_leaves": "Beginning Leaves"
+  "block.beginning.beginning_leaves": "Beginning Leaves",
+  "item.beginning.the_beginning": "Portal Key",
+  "block.beginning.beginning_stone": "Beginning Stone"
 }
