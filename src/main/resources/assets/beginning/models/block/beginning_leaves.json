@@ -1,7 +1,7 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "beginning:blocks/begleaves",
-    "particle": "beginning:blocks/begleaves"
+    "all": "beginning:blocks/leafbeginning2",
+    "particle": "beginning:blocks/leafbeginning2"
   }
 }
