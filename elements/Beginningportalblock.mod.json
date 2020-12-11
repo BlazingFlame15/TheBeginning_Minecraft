@@ -3,9 +3,9 @@
   "_type": "block",
   "definition": {
     "texture": "portalblocktop",
-    "textureTop": "portalblockbotton",
+    "textureTop": "portalblocktop",
     "textureLeft": "portalblocktop",
-    "textureFront": "portalblocktop",
+    "textureFront": "portalblockbotton",
     "textureRight": "portalblocktop",
     "textureBack": "portalblocktop",
     "renderType": 10,
@@ -66,7 +66,7 @@
       "value": "GROUND"
     },
     "luminance": 0.0,
-    "unbreakable": false,
+    "unbreakable": true,
     "breakHarvestLevel": 1,
     "spawnParticles": false,
     "particleToSpawn": {
