@@ -336,6 +336,78 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "yellowstone"
+    },
+    {
+      "name": "Beginningtree1",
+      "type": "structure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningtree_1"
+    },
+    {
+      "name": "Beginningtree2",
+      "type": "structure",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningtree_2"
+    },
+    {
+      "name": "Beginningtree3",
+      "type": "structure",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningtree_3"
+    },
+    {
+      "name": "Beginningtree4",
+      "type": "structure",
+      "sortid": 33,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningtree_4"
+    },
+    {
+      "name": "Beginningtree5",
+      "type": "structure",
+      "sortid": 34,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningtree_5"
+    },
+    {
+      "name": "Beginningtree6",
+      "type": "structure",
+      "sortid": 35,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginningtree_6"
+    },
+    {
+      "name": "ExitKey",
+      "type": "item",
+      "sortid": 36,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "exit_key"
+    },
+    {
+      "name": "ExitKeyRecipe",
+      "type": "recipe",
+      "sortid": 37,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "exit_key_recipe"
     }
   ],
   "variable_elements": [],
@@ -347,6 +419,7 @@
       "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
       "block.beginning.beginning_dirt": "Beginning Dirt",
       "block.beginning.beginning_wood": "Beginning Log",
+      "item.beginning.exit_key": "Exit Key",
       "itemGroup.tabbeginning": "Beginning",
       "biome.beginning.beginningbiome": "Beginning Biome",
       "block.beginning.beginningsapling": "Beginningsapling",

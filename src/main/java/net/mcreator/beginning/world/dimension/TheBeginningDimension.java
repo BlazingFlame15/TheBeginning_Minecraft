@@ -72,7 +72,7 @@ import net.minecraft.block.Block;
 
 import net.mcreator.beginning.item.TheBeginningItem;
 import net.mcreator.beginning.block.BeginningportalblockBlock;
-import net.mcreator.beginning.block.BeginningDirtBlock;
+import net.mcreator.beginning.block.BeginningStoneBlock;
 import net.mcreator.beginning.BeginningModElements;
 
 import javax.annotation.Nullable;
@@ -758,7 +758,7 @@ public class TheBeginningDimension extends BeginningModElements.ModElement {
 		public ChunkProviderModded(IWorld world, BiomeProvider provider) {
 			super(world, provider, new OverworldGenSettings() {
 				public BlockState getDefaultBlock() {
-					return BeginningDirtBlock.block.getDefaultState();
+					return BeginningStoneBlock.block.getDefaultState();
 				}
 
 				public BlockState getDefaultFluid() {
@@ -790,7 +790,7 @@ public class TheBeginningDimension extends BeginningModElements.ModElement {
 				for (Biome biome : this.biomes) {
 					biome.addCarver(GenerationStage.Carving.AIR, Biome.createCarver(new CaveWorldCarver(ProbabilityConfig::deserialize, 256) {
 						{
-							carvableBlocks = ImmutableSet.of(BeginningDirtBlock.block.getDefaultState().getBlock(),
+							carvableBlocks = ImmutableSet.of(BeginningStoneBlock.block.getDefaultState().getBlock(),
 									biome.getSurfaceBuilder().getConfig().getTop().getBlock(),
 									biome.getSurfaceBuilder().getConfig().getUnder().getBlock());
 						}

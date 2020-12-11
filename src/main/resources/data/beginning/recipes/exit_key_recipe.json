@@ -1,0 +1,16 @@
+{
+  "group": "beginning",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:white_bed"
+    },
+    {
+      "item": "beginning:beginning_wood"
+    }
+  ],
+  "result": {
+    "item": "beginning:exit_key",
+    "count": 1
+  }
+}

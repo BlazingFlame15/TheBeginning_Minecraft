@@ -30,9 +30,9 @@ import net.mcreator.beginning.BeginningModElements;
 import java.util.Random;
 
 @BeginningModElements.ModElement.Tag
-public class BeginningtreeStructure extends BeginningModElements.ModElement {
-	public BeginningtreeStructure(BeginningModElements instance) {
-		super(instance, 22);
+public class Beginningtree6Structure extends BeginningModElements.ModElement {
+	public Beginningtree6Structure(BeginningModElements instance) {
+		super(instance, 35);
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class BeginningtreeStructure extends BeginningModElements.ModElement {
 						int y = spawnTo.getY();
 						int z = spawnTo.getZ();
 						Template template = ((ServerWorld) world.getWorld()).getSaveHandler().getStructureTemplateManager()
-								.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_0_medium"));
+								.getTemplateDefaulted(new ResourceLocation("beginning", "beginning_tree_6_2x2_version_2"));
 						if (template == null)
 							return false;
 						template.addBlocksToWorld(world, spawnTo, new PlacementSettings().setRotation(rotation).setRandom(random).setMirror(mirror)

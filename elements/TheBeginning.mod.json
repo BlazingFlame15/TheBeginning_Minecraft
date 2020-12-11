@@ -26,7 +26,7 @@
     ],
     "worldGenType": "Normal world gen",
     "mainFillerBlock": {
-      "value": "CUSTOM:BeginningDirt"
+      "value": "CUSTOM:BeginningStone"
     },
     "fluidBlock": {
       "value": "Blocks.FLOWING_WATER"
