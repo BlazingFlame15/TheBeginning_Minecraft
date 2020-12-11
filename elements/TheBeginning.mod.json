@@ -14,9 +14,9 @@
     },
     "igniterName": "Portal Key",
     "igniterTab": {
-      "value": "TOOLS"
+      "value": "CUSTOM:Beginning"
     },
-    "texture": "begsaplingitem",
+    "texture": "exitkey",
     "portalTexture": "wood",
     "enablePortal": true,
     "biomesInDimension": [
