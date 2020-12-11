@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Collections;
 
 @BeginningModElements.ModElement.Tag
-public class BeginningStoneBlock extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:beginning_stone")
+public class YellowstoneBlock extends BeginningModElements.ModElement {
+	@ObjectHolder("beginning:yellowstone")
 	public static final Block block = null;
-	public BeginningStoneBlock(BeginningModElements instance) {
-		super(instance, 27);
+	public YellowstoneBlock(BeginningModElements instance) {
+		super(instance, 29);
 	}
 
 	@Override
@@ -34,9 +34,9 @@ public class BeginningStoneBlock extends BeginningModElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5f, 6f).lightValue(0).harvestLevel(1)
+			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(5f, 5f).lightValue(0).harvestLevel(5)
 					.harvestTool(ToolType.PICKAXE));
-			setRegistryName("beginning_stone");
+			setRegistryName("yellowstone");
 		}
 
 		@Override

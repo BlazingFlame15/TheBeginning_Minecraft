@@ -2,7 +2,6 @@
 package net.mcreator.beginning.block;
 
 import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.common.ToolType;
 
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.item.ItemStack;
@@ -20,11 +19,11 @@ import java.util.List;
 import java.util.Collections;
 
 @BeginningModElements.ModElement.Tag
-public class BeginningStoneBlock extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:beginning_stone")
+public class BeginiumBlock extends BeginningModElements.ModElement {
+	@ObjectHolder("beginning:beginium")
 	public static final Block block = null;
-	public BeginningStoneBlock(BeginningModElements instance) {
-		super(instance, 27);
+	public BeginiumBlock(BeginningModElements instance) {
+		super(instance, 28);
 	}
 
 	@Override
@@ -34,9 +33,8 @@ public class BeginningStoneBlock extends BeginningModElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1.5f, 6f).lightValue(0).harvestLevel(1)
-					.harvestTool(ToolType.PICKAXE));
-			setRegistryName("beginning_stone");
+			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(3f, 3f).lightValue(0));
+			setRegistryName("beginium");
 		}
 
 		@Override

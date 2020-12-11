@@ -318,6 +318,24 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "beginning_stone"
+    },
+    {
+      "name": "Beginium",
+      "type": "block",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginium"
+    },
+    {
+      "name": "Yellowstone",
+      "type": "block",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "yellowstone"
     }
   ],
   "variable_elements": [],
@@ -335,7 +353,9 @@
       "block.beginning.portal_inside_block": "Portal Inside Block",
       "block.beginning.beginning_brick": "Beginning Brick",
       "block.beginning.begblock": "Beginning Dirt",
+      "block.beginning.yellowstone": "Yellowstone",
       "block.beginning.begdirt": "Beginning Dirt",
+      "block.beginning.beginium": "Beginium",
       "block.beginning.beginning_leaves": "Beginning Leaves",
       "item.beginning.the_beginning": "Portal Key",
       "block.beginning.beginning_stone": "Beginning Stone"

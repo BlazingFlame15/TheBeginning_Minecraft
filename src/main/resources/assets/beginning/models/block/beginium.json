@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "beginning:blocks/beginiumore",
+    "up": "beginning:blocks/beginiumore",
+    "north": "beginning:blocks/beginiumore",
+    "east": "beginning:blocks/beginiumore",
+    "south": "beginning:blocks/beginiumore",
+    "west": "beginning:blocks/beginiumore",
+    "particle": "beginning:blocks/beginiumore"
+  }
+}

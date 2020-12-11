@@ -2,12 +2,12 @@
   "_fv": 13,
   "_type": "block",
   "definition": {
-    "texture": "beginningstne",
-    "textureTop": "beginningstne",
-    "textureLeft": "beginningstne",
-    "textureFront": "beginningstne",
-    "textureRight": "beginningstne",
-    "textureBack": "beginningstne",
+    "texture": "beginiumore",
+    "textureTop": "beginiumore",
+    "textureLeft": "beginiumore",
+    "textureFront": "beginiumore",
+    "textureRight": "beginiumore",
+    "textureBack": "beginiumore",
     "renderType": 10,
     "customModelName": "Normal",
     "rotationMode": 0,
@@ -24,16 +24,16 @@
     "Mx": 1.0,
     "My": 1.0,
     "Mz": 1.0,
-    "name": "Beginning Stone",
+    "name": "Beginium",
     "specialInfo": [],
-    "hardness": 1.5,
-    "resistance": 6.0,
+    "hardness": 3.0,
+    "resistance": 3.0,
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
       "value": "CUSTOM:Beginning"
     },
-    "destroyTool": "pickaxe",
+    "destroyTool": "Not specified",
     "customDrop": {
       "value": ""
     },
@@ -67,7 +67,7 @@
     },
     "luminance": 0.0,
     "unbreakable": false,
-    "breakHarvestLevel": 1,
+    "breakHarvestLevel": 5,
     "spawnParticles": false,
     "particleToSpawn": {
       "value": "EXPLOSION_NORMAL"

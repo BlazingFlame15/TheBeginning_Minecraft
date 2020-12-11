@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "beginning:blocks/yellowstoneore_1",
+    "up": "beginning:blocks/yellowstoneore_1",
+    "north": "beginning:blocks/yellowstoneore_1",
+    "east": "beginning:blocks/yellowstoneore_1",
+    "south": "beginning:blocks/yellowstoneore_1",
+    "west": "beginning:blocks/yellowstoneore_1",
+    "particle": "beginning:blocks/yellowstoneore_1"
+  }
+}
