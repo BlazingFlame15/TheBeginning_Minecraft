@@ -63,7 +63,7 @@
     "reactionToPushing": "NORMAL",
     "isNotColidable": false,
     "soundOnStep": {
-      "value": "LANTERN"
+      "value": "METAL"
     },
     "luminance": 0.0,
     "unbreakable": true,

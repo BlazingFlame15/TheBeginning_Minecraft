@@ -34,7 +34,7 @@ public class PortalInsideBlockBlock extends BeginningModElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.LANTERN).hardnessAndResistance(-1, 3600000).lightValue(0));
+			super(Block.Properties.create(Material.MISCELLANEOUS).sound(SoundType.METAL).hardnessAndResistance(-1, 3600000).lightValue(0));
 			setRegistryName("portal_inside_block");
 		}
 

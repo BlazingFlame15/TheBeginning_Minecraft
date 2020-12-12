@@ -34,7 +34,7 @@ public class BeginningportalblockBlock extends BeginningModElements.ModElement {
 	}
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.IRON).sound(SoundType.GROUND).hardnessAndResistance(-1, 3600000).lightValue(0));
+			super(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(-1, 3600000).lightValue(0));
 			setRegistryName("beginningportalblock");
 		}
 
