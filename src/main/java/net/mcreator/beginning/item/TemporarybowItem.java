@@ -49,9 +49,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 
 @BeginningModElements.ModElement.Tag
 public class TemporarybowItem extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:temporarybow")
+	@ObjectHolder("beginning:laser")
 	public static final Item block = null;
-	@ObjectHolder("beginning:entitybullettemporarybow")
+	@ObjectHolder("beginning:entitybulletlaser")
 	public static final EntityType arrow = null;
 	public TemporarybowItem(BeginningModElements instance) {
 		super(instance, 41);
@@ -62,7 +62,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 		elements.items.add(() -> new ItemRanged());
 		elements.entities.add(() -> (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 				.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
-				.size(0.5f, 0.5f)).build("entitybullettemporarybow").setRegistryName("entitybullettemporarybow"));
+				.size(0.5f, 0.5f)).build("entitybulletlaser").setRegistryName("entitybulletlaser"));
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
 			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(100));
-			setRegistryName("temporarybow");
+			setRegistryName("laser");
 		}
 
 		@Override

@@ -53,7 +53,7 @@ public class BeginnusEyeItem extends BeginningModElements.ModElement {
 		@Override
 		public void addInformation(ItemStack itemstack, World world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("The eyeball of the eye of beginnus/"));
+			list.add(new StringTextComponent("The eyeball of the eye of beginnus"));
 			list.add(new StringTextComponent("still caked with green flesh"));
 		}
 	}

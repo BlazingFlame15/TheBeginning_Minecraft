@@ -455,7 +455,7 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "temporarybow"
+      "registry_name": "laser"
     }
   ],
   "variable_elements": [],
@@ -464,20 +464,20 @@
     "en_us": {
       "block.beginning.beginning_grass": "Beginning Grass",
       "block.beginning.beginningportalblock": "Beginningportalblock",
-      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
+      "item.beginning.beginningsaplingitem": "Beginning Sapling",
       "item.beginning.beginnus_eye": "Beginnus Eye",
       "block.beginning.beginning_dirt": "Beginning Dirt",
       "block.beginning.beginning_wood": "Beginning Log",
       "item.beginning.exit_key": "Exit Key",
       "itemGroup.tabbeginning": "Beginning",
       "biome.beginning.beginningbiome": "Beginning Biome",
-      "block.beginning.beginningsapling": "Beginningsapling",
+      "block.beginning.beginningsapling": "Beginning Sapling",
       "block.beginning.portal_inside_block": "Portal Inside Block",
       "block.beginning.beginning_brick": "Beginning Brick",
       "entity.beginning.the_eye_of_beginnus": "The Eye Of Beginnus",
-      "item.beginning.temporarybow": "Uncraftablebow",
       "block.beginning.begblock": "Beginning Dirt",
       "block.beginning.yellowstone": "Yellowstone",
+      "item.beginning.laser": "Uncraftablebow",
       "block.beginning.begdirt": "Beginning Dirt",
       "block.beginning.beginium": "Beginium",
       "block.beginning.beginning_leaves": "Beginning Leaves",
