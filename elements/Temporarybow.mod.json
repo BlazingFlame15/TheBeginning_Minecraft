@@ -17,7 +17,7 @@
     "shootConstantly": false,
     "usageCount": 100,
     "actionSound": {
-      "value": "CUSTOM:lasergfun"
+      "value": "CUSTOM:laser2"
     },
     "hasGlow": false,
     "animation": "bow",
