@@ -408,6 +408,54 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "exit_key_recipe"
+    },
+    {
+      "name": "TheEyeOfBeginnus",
+      "type": "mob",
+      "sortid": 38,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "the_eye_of_beginnus"
+    },
+    {
+      "name": "Flying",
+      "type": "procedure",
+      "sortid": 39,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "flying",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "BeginnusEye",
+      "type": "item",
+      "sortid": 40,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginnus_eye"
+    },
+    {
+      "name": "Temporarybow",
+      "type": "gun",
+      "sortid": 41,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "temporarybow"
     }
   ],
   "variable_elements": [],
@@ -417,6 +465,7 @@
       "block.beginning.beginning_grass": "Beginning Grass",
       "block.beginning.beginningportalblock": "Beginningportalblock",
       "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
+      "item.beginning.beginnus_eye": "Beginnus Eye",
       "block.beginning.beginning_dirt": "Beginning Dirt",
       "block.beginning.beginning_wood": "Beginning Log",
       "item.beginning.exit_key": "Exit Key",
@@ -425,13 +474,16 @@
       "block.beginning.beginningsapling": "Beginningsapling",
       "block.beginning.portal_inside_block": "Portal Inside Block",
       "block.beginning.beginning_brick": "Beginning Brick",
+      "entity.beginning.the_eye_of_beginnus": "The Eye Of Beginnus",
+      "item.beginning.temporarybow": "Uncraftablebow",
       "block.beginning.begblock": "Beginning Dirt",
       "block.beginning.yellowstone": "Yellowstone",
       "block.beginning.begdirt": "Beginning Dirt",
       "block.beginning.beginium": "Beginium",
       "block.beginning.beginning_leaves": "Beginning Leaves",
       "item.beginning.the_beginning": "Portal Key",
-      "block.beginning.beginning_stone": "Beginning Stone"
+      "block.beginning.beginning_stone": "Beginning Stone",
+      "item.beginning.the_eye_of_beginnus_spawn_egg": "The Eye Of Beginnus Spawn Egg"
     }
   },
   "workspaceSettings": {
