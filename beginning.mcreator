@@ -465,6 +465,23 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "sludge"
+    },
+    {
+      "name": "SludgeMobplayerCollidesBlock",
+      "type": "procedure",
+      "sortid": 43,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_mobplayer_collides_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
