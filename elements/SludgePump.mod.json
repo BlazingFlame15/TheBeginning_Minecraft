@@ -99,6 +99,9 @@
         "value": "CUSTOM:Sludge"
       }
     ],
+    "onTickUpdate": {
+      "name": "Sludgepumpfuelprocedure"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [
