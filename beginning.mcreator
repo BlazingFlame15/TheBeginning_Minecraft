@@ -696,6 +696,39 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "convertism"
+    },
+    {
+      "name": "WhenBlockDroppedIntoConvertism",
+      "type": "procedure",
+      "sortid": 55,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "when_block_dropped_into_convertism",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -723,8 +756,8 @@
       "item.beginning.beginnus_eye": "Beginnus Eye",
       "fluid.convertism": "Convertism",
       "block.beginning.beginning_wood": "Beginning Log",
-      "item.beginning.exit_key": "Exit Key",
       "block.beginning.sludge_pump": "Sludge Pump",
+      "item.beginning.exit_key": "Exit Key",
       "itemGroup.tabbeginning": "Beginning",
       "block.beginning.beginningsapling": "Beginning Sapling",
       "block.beginning.portal_inside_block": "Portal Inside Block",
