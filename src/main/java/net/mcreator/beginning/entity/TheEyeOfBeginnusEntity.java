@@ -61,8 +61,8 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(3.1999999999999997f, 3.1999999999999997f))
-						.build("the_eye_of_beginnus").setRegistryName("the_eye_of_beginnus");
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(3.2f, 3.2f)).build("the_eye_of_beginnus")
+						.setRegistryName("the_eye_of_beginnus");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -13369549, -13369549, new Item.Properties().group(BeginningItemGroup.tab))
 				.setRegistryName("the_eye_of_beginnus_spawn_egg"));
@@ -75,7 +75,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 			return new MobRenderer(renderManager, new Modelghasr4(), 3.1999999999999997f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("beginning:textures/1movingeye.png");
+					return new ResourceLocation("beginning:textures/eye.png");
 				}
 			};
 		});
