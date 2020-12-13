@@ -16,6 +16,9 @@
     },
     "frequencyOnChunks": 5,
     "spawnWorldTypes": [],
-    "restrictionBiomes": []
+    "restrictionBiomes": [],
+    "onEntityCollides": {
+      "name": "ConvertismMobplayerCollidesBlock"
+    }
   }
 }
