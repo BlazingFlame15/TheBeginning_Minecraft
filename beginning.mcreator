@@ -484,6 +484,15 @@
       }
     },
     {
+      "name": "SludgeProcessorGUI",
+      "type": "gui",
+      "sortid": 44,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_processor_gui"
+    },
+    {
       "name": "Scrap",
       "type": "block",
       "sortid": 44,
@@ -491,6 +500,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "scrap"
+    },
+    {
+      "name": "SludgeBucket",
+      "type": "item",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_bucket"
     }
   ],
   "variable_elements": [],

@@ -5,14 +5,14 @@
     "name": "Sludge",
     "textureStill": "sludgestill",
     "textureFlowing": "sludeanimate",
-    "luminosity": 0,
+    "luminosity": 1,
     "density": 5000,
     "viscosity": 5000,
     "isGas": false,
     "type": "WATER",
-    "generateBucket": true,
+    "generateBucket": false,
     "creativeTab": {
-      "value": "MISC"
+      "value": "CUSTOM:Beginning"
     },
     "frequencyOnChunks": 1,
     "spawnWorldTypes": [
