@@ -514,7 +514,7 @@
       "name": "VoidReaper",
       "type": "mob",
       "sortid": 46,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "ids": {},
       "registry_name": "void_reaper"
@@ -556,7 +556,7 @@
       "name": "SludgePump",
       "type": "block",
       "sortid": 48,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "ids": {},
       "registry_name": "sludge_pump"
@@ -607,7 +607,7 @@
       "name": "Sludgepumpfuel",
       "type": "gui",
       "sortid": 49,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "ids": {},
       "registry_name": "sludgepumpfuel"
@@ -617,8 +617,8 @@
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
       "item.beginning.beginnus_eye": "Beginnus Eye",
+      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
       "block.beginning.beginning_wood": "Beginning Log",
       "item.beginning.exit_key": "Exit Key",
       "itemGroup.tabbeginning": "Beginning",
