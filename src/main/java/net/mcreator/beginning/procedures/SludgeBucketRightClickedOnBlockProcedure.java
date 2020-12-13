@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
 
 import net.mcreator.beginning.item.SludgeResistantBucketItem;
 import net.mcreator.beginning.block.SludgeBlock;
@@ -52,12 +53,16 @@ public class SludgeBucketRightClickedOnBlockProcedure extends BeginningModElemen
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);
-		if (entity instanceof PlayerEntity) {
-			ItemStack _setstack = new ItemStack(SludgeResistantBucketItem.block, (int) (1));
-			_setstack.setCount((int) 1);
-			ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+		if ((((world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == Blocks.AIR.getDefaultState().getBlock())
+				|| ((world.getBlockState(new BlockPos((int) x, (int) (y + 1), (int) z))).getBlock() == Blocks.CAVE_AIR.getDefaultState()
+						.getBlock()))) {
+			(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);
+			if (entity instanceof PlayerEntity) {
+				ItemStack _setstack = new ItemStack(SludgeResistantBucketItem.block, (int) (1));
+				_setstack.setCount((int) 1);
+				ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+			}
+			world.setBlockState(new BlockPos((int) x, (int) (y + 1), (int) z), SludgeBlock.block.getDefaultState(), 3);
 		}
-		world.setBlockState(new BlockPos((int) x, (int) y, (int) z), SludgeBlock.block.getDefaultState(), 3);
 	}
 }
