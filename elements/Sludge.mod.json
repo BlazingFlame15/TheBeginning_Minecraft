@@ -6,18 +6,21 @@
     "textureStill": "sludgestill",
     "textureFlowing": "sludeanimate",
     "luminosity": 0,
-    "density": 2000,
-    "viscosity": 1000,
+    "density": 5000,
+    "viscosity": 5000,
     "isGas": false,
     "type": "WATER",
     "generateBucket": true,
     "creativeTab": {
       "value": "MISC"
     },
-    "frequencyOnChunks": 5,
+    "frequencyOnChunks": 1,
     "spawnWorldTypes": [
-      "Surface"
+      "CUSTOM:TheBeginning"
     ],
-    "restrictionBiomes": []
+    "restrictionBiomes": [],
+    "onEntityCollides": {
+      "name": "SludgeMobplayerCollidesBlock"
+    }
   }
 }
