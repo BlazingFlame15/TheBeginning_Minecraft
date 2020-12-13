@@ -669,6 +669,15 @@
           }
         ]
       }
+    },
+    {
+      "name": "YellowstoneIngot",
+      "type": "item",
+      "sortid": 52,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "yellowstone_ingot"
     }
   ],
   "variable_elements": [],
@@ -692,8 +701,8 @@
   ],
   "language_map": {
     "en_us": {
-      "item.beginning.beginnus_eye": "Beginnus Eye",
       "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
+      "item.beginning.beginnus_eye": "Beginnus Eye",
       "block.beginning.beginning_wood": "Beginning Log",
       "item.beginning.exit_key": "Exit Key",
       "block.beginning.sludge_pump": "Sludge Pump",
@@ -705,6 +714,7 @@
       "subtitles.laser2": "",
       "item.beginning.temporarybow": "Uncraftablebow",
       "block.beginning.begblock": "Beginning Dirt",
+      "item.beginning.yellowstone_ingot": "Yellowstone Ingot",
       "item.beginning.sludge_resistant_bucket": "Sludge Resistant Bucket",
       "entity.beginning.void_reaper": "Void Reaper",
       "block.beginning.beginning_leaves": "Beginning Leaves",
