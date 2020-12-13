@@ -509,6 +509,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "sludge_bucket"
+    },
+    {
+      "name": "VoidReaper",
+      "type": "mob",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "void_reaper"
     }
   ],
   "variable_elements": [],
@@ -526,8 +535,10 @@
       "item.beginning.sludge_bucket": "Sludge Bucket",
       "item.beginning.temporarybow": "Uncraftablebow",
       "block.beginning.begblock": "Beginning Dirt",
+      "entity.beginning.void_reaper": "Void Reaper",
       "block.beginning.beginning_leaves": "Beginning Leaves",
       "item.beginning.the_beginning": "Portal Key",
+      "item.beginning.void_reaper_spawn_egg": "Void Reaper Spawn Egg",
       "block.beginning.beginning_grass": "Beginning Grass",
       "block.beginning.beginningportalblock": "Beginningportalblock",
       "block.beginning.beginning_dirt": "Beginning Dirt",
