@@ -75,7 +75,7 @@ public class SludgeBlock extends BeginningModElements.ModElement {
 	public void initElements() {
 		fluidproperties = new ForgeFlowingFluid.Properties(() -> still, () -> flowing,
 				FluidAttributes.builder(new ResourceLocation("beginning:blocks/sludgestill"), new ResourceLocation("beginning:blocks/sludeanimate"))
-						.luminosity(1).density(5000).viscosity(5000)).block(() -> block);
+						.luminosity(1).density(50000).viscosity(50000)).block(() -> block);
 		still = (FlowingFluid) new ForgeFlowingFluid.Source(fluidproperties).setRegistryName("sludge");
 		flowing = (FlowingFluid) new ForgeFlowingFluid.Flowing(fluidproperties).setRegistryName("sludge_flowing");
 		elements.blocks.add(() -> new FlowingFluidBlock(still, Block.Properties.create(Material.WATER)) {

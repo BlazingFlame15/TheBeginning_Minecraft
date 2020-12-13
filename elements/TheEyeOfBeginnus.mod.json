@@ -78,7 +78,7 @@
       "value": ""
     },
     "hurtSound": {
-      "value": "entity.generic.hurt"
+      "value": "entity.enderdragon.hurt"
     },
     "deathSound": {
       "value": "entity.generic.death"
