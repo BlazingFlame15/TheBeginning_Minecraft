@@ -3,8 +3,8 @@
   "_type": "structure",
   "definition": {
     "structure": "beginning_tree_1_big",
-    "randomlyRotateStructure": true,
-    "surfaceDetectionType": "First motion blocking block",
+    "randomlyRotateStructure": false,
+    "surfaceDetectionType": "First block",
     "spawnProbability": 100000,
     "minCountPerChunk": 1,
     "maxCountPerChunk": 1,
