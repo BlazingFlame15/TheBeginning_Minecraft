@@ -2,8 +2,6 @@
   "replace": false,
   "values": [
     "beginning:sludge",
-    "beginning:sludge_flowing",
-    "beginning:convertism",
-    "beginning:convertism_flowing"
+    "beginning:sludge_flowing"
   ]
 }
