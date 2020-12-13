@@ -1,0 +1,59 @@
+{
+  "_fv": 13,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Input YellowStone Here",
+          "color": {
+            "value": -10066432,
+            "falpha": 0.0
+          },
+          "name": "Input YellowStone Here",
+          "x": 132,
+          "y": 89
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "color": {
+            "value": -3355648,
+            "falpha": 0.0
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 132,
+          "y": 67
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Sludge Pump GUI",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Sludge Pump GUI",
+          "x": 173,
+          "y": 43
+        }
+      }
+    ]
+  }
+}

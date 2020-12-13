@@ -13,7 +13,6 @@ import net.minecraft.block.Blocks;
 
 import net.mcreator.beginning.item.SludgeResistantBucketItem;
 import net.mcreator.beginning.item.SludgeBucketItem;
-import net.mcreator.beginning.block.SludgeBlock;
 import net.mcreator.beginning.BeginningModElements;
 
 import java.util.Map;
@@ -55,8 +54,7 @@ public class SludgeResistantBucketRightClickedOnBlockProcedure extends Beginning
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == SludgeBlock.block
-				.getDefaultState().getBlock())) {
+		if ((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getFluidState().isSource())) {
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
 				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);

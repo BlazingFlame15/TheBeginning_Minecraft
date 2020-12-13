@@ -1,8 +1,9 @@
 {
-  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "item.beginning.beginnus_eye": "Beginnus Eye",
+  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "block.beginning.beginning_wood": "Beginning Log",
   "item.beginning.exit_key": "Exit Key",
+  "block.beginning.sludge_pump": "Sludge Pump",
   "itemGroup.tabbeginning": "Beginning",
   "block.beginning.beginningsapling": "Beginningsapling",
   "block.beginning.portal_inside_block": "Portal Inside Block",
