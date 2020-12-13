@@ -678,6 +678,15 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "yellowstone_ingot"
+    },
+    {
+      "name": "BeginiumIngot",
+      "type": "item",
+      "sortid": 53,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginium_ingot"
     }
   ],
   "variable_elements": [],
@@ -701,8 +710,8 @@
   ],
   "language_map": {
     "en_us": {
-      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
       "item.beginning.beginnus_eye": "Beginnus Eye",
+      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
       "block.beginning.beginning_wood": "Beginning Log",
       "item.beginning.exit_key": "Exit Key",
       "block.beginning.sludge_pump": "Sludge Pump",
@@ -728,6 +737,7 @@
       "entity.beginning.the_eye_of_beginnus": "The Eye Of Beginnus",
       "fluid.sludge": "Sludge",
       "block.beginning.yellowstone": "Yellowstone",
+      "item.beginning.beginium_ingot": "Beginium Ingot",
       "block.beginning.begdirt": "Beginning Dirt",
       "block.beginning.beginium": "Beginium",
       "block.beginning.beginning_stone": "Beginning Stone",

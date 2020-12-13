@@ -72,7 +72,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(4.5f, 4.5f)).build("the_eye_of_beginnus")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(3.5f, 3.5f)).build("the_eye_of_beginnus")
 						.setRegistryName("the_eye_of_beginnus");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -13369549, -13369549, new Item.Properties().group(BeginningItemGroup.tab))
@@ -83,10 +83,10 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
-			return new MobRenderer(renderManager, new Modelghasr4(), 4.5f) {
+			return new MobRenderer(renderManager, new Modelghasr4(), 3.5f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("beginning:textures/ghasttexture.png");
+					return new ResourceLocation("beginning:textures/3.png");
 				}
 			};
 		});
@@ -187,7 +187,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 
 		@Override
 		public double getMountedYOffset() {
-			return super.getMountedYOffset() + 4.5;
+			return super.getMountedYOffset() + 3.5;
 		}
 
 		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
