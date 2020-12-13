@@ -72,7 +72,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(50f, 50f)).build("the_eye_of_beginnus")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(4.5f, 4.5f)).build("the_eye_of_beginnus")
 						.setRegistryName("the_eye_of_beginnus");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -13369549, -13369549, new Item.Properties().group(BeginningItemGroup.tab))
@@ -83,7 +83,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
-			return new MobRenderer(renderManager, new Modelghasr4(), 0.5f) {
+			return new MobRenderer(renderManager, new Modelghasr4(), 4.5f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
 					return new ResourceLocation("beginning:textures/ghasttexture.png");
@@ -187,7 +187,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 
 		@Override
 		public double getMountedYOffset() {
-			return super.getMountedYOffset() + 50;
+			return super.getMountedYOffset() + 4.5;
 		}
 
 		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
@@ -299,7 +299,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 			textureHeight = 16;
 			bb_main = new ModelRenderer(this);
 			bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-			bb_main.setTextureOffset(0, 0).addBox(-46.0F, -54.0F, -4.0F, 50.0F, 50.0F, 50.0F, 0.0F, false);
+			bb_main.setTextureOffset(0, 0).addBox(-25.0F, -70.0F, -25.0F, 50.0F, 50.0F, 50.0F, 0.0F, false);
 		}
 
 		@Override

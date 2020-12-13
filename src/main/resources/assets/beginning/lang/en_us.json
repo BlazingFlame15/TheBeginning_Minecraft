@@ -1,6 +1,6 @@
 {
-  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "item.beginning.beginnus_eye": "Beginnus Eye",
+  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "block.beginning.beginning_wood": "Beginning Log",
   "item.beginning.exit_key": "Exit Key",
   "block.beginning.sludge_pump": "Sludge Pump",
@@ -27,5 +27,6 @@
   "block.beginning.begdirt": "Beginning Dirt",
   "block.beginning.beginium": "Beginium",
   "block.beginning.beginning_stone": "Beginning Stone",
+  "subtitles.lasergfun": "",
   "item.beginning.the_eye_of_beginnus_spawn_egg": "The Eye Of Beginnus Spawn Egg"
 }

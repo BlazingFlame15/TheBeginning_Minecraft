@@ -1,1 +1,11 @@
-{}
+{
+  "lasergfun": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "beginning:recording_30",
+        "stream": false
+      }
+    ]
+  }
+}

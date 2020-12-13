@@ -11,7 +11,7 @@ public static class Modelghasr4 extends EntityModel<Entity> {
 
 		bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-		bb_main.setTextureOffset(0, 0).addBox(-46.0F, -54.0F, -4.0F, 50.0F, 50.0F, 50.0F, 0.0F, false);
+		bb_main.setTextureOffset(0, 0).addBox(-25.0F, -70.0F, -25.0F, 50.0F, 50.0F, 50.0F, 0.0F, false);
 	}
 
 	@Override

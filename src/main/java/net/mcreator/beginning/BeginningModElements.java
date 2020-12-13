@@ -47,6 +47,7 @@ public class BeginningModElements {
 	public final List<Supplier<Enchantment>> enchantments = new ArrayList<>();
 	public static Map<ResourceLocation, net.minecraft.util.SoundEvent> sounds = new HashMap<>();
 	public BeginningModElements() {
+		sounds.put(new ResourceLocation("beginning", "lasergfun"), new net.minecraft.util.SoundEvent(new ResourceLocation("beginning", "lasergfun")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("beginning").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

@@ -49,9 +49,9 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 
 @BeginningModElements.ModElement.Tag
 public class TemporarybowItem extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:laser")
+	@ObjectHolder("beginning:temporarybow")
 	public static final Item block = null;
-	@ObjectHolder("beginning:entitybulletlaser")
+	@ObjectHolder("beginning:entitybullettemporarybow")
 	public static final EntityType arrow = null;
 	public TemporarybowItem(BeginningModElements instance) {
 		super(instance, 41);
@@ -62,7 +62,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 		elements.items.add(() -> new ItemRanged());
 		elements.entities.add(() -> (EntityType.Builder.<ArrowCustomEntity>create(ArrowCustomEntity::new, EntityClassification.MISC)
 				.setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).setCustomClientFactory(ArrowCustomEntity::new)
-				.size(0.5f, 0.5f)).build("entitybulletlaser").setRegistryName("entitybulletlaser"));
+				.size(0.5f, 0.5f)).build("entitybullettemporarybow").setRegistryName("entitybullettemporarybow"));
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 	public static class ItemRanged extends Item {
 		public ItemRanged() {
 			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(100));
-			setRegistryName("laser");
+			setRegistryName("temporarybow");
 		}
 
 		@Override
@@ -100,7 +100,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-					ArrowCustomEntity entityarrow = shoot(world, entity, random, 6f, 5, 1);
+					ArrowCustomEntity entityarrow = shoot(world, entity, random, 2f, 5, 1);
 					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
 					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 				}
@@ -229,7 +229,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.arrow.shoot")),
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("beginning:lasergfun")),
 				SoundCategory.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
 		return entityarrow;
 	}
@@ -239,7 +239,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 		double d0 = target.getPosY() + (double) target.getEyeHeight() - 1.1;
 		double d1 = target.getPosX() - entity.getPosX();
 		double d3 = target.getPosZ() - entity.getPosZ();
-		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 6f * 2, 12.0F);
+		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 2f * 2, 12.0F);
 		entityarrow.setSilent(true);
 		entityarrow.setDamage(5);
 		entityarrow.setKnockbackStrength(1);
@@ -249,7 +249,7 @@ public class TemporarybowItem extends BeginningModElements.ModElement {
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		entity.world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
-				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.arrow.shoot")),
+				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("beginning:lasergfun")),
 				SoundCategory.PLAYERS, 1, 1f / (new Random().nextFloat() * 0.5f + 1));
 		return entityarrow;
 	}
