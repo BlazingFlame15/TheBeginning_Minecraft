@@ -32,7 +32,7 @@ public class BeginningbiomeBiome extends BeginningModElements.ModElement {
 	}
 	static class CustomBiome extends Biome {
 		public CustomBiome() {
-			super(new Biome.Builder().downfall(0.5f).depth(0.1f).scale(1f).temperature(0.5f).precipitation(Biome.RainType.RAIN)
+			super(new Biome.Builder().downfall(0.5f).depth(0.1f).scale(0.6f).temperature(0.5f).precipitation(Biome.RainType.RAIN)
 					.category(Biome.Category.NONE).waterColor(-10053121).waterFogColor(329011)
 					.surfaceBuilder(SurfaceBuilder.DEFAULT, new SurfaceBuilderConfig(BeginningGrassBlock.block.getDefaultState(),
 							BeginningDirtBlock.block.getDefaultState(), BeginningDirtBlock.block.getDefaultState())));

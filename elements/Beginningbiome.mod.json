@@ -46,7 +46,7 @@
     "rainingPossibility": 0.5,
     "temperature": 0.5,
     "baseHeight": 0.1,
-    "heightVariation": 1.0,
+    "heightVariation": 0.6,
     "spawnBiome": false,
     "biomeWeight": 10,
     "biomeType": "WARM",

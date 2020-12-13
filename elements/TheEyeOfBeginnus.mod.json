@@ -21,11 +21,11 @@
       "falpha": 0.0
     },
     "creativeTab": {
-      "value": "MISC"
+      "value": "CUSTOM:Beginning"
     },
     "isBoss": true,
     "bossBarColor": "WHITE",
-    "bossBarType": "PROGRESS",
+    "bossBarType": "NOTCHED_6",
     "equipmentMainHand": {
       "value": ""
     },
@@ -52,7 +52,7 @@
     "movementSpeed": 0.3,
     "armorBaseValue": 0.0,
     "trackingRange": 64,
-    "health": 60,
+    "health": 150,
     "xpAmount": 25,
     "waterMob": false,
     "flyingMob": true,
@@ -67,7 +67,7 @@
     "immuneToArrows": false,
     "immuneToFallDamage": false,
     "immuneToCactus": false,
-    "immuneToDrowning": false,
+    "immuneToDrowning": true,
     "immuneToLightning": false,
     "immuneToPotions": false,
     "immuneToPlayer": false,

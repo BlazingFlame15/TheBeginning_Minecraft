@@ -15,7 +15,11 @@
     "spawnWorldTypes": [
       "CUSTOM:TheBeginning"
     ],
-    "restrictionBlocks": [],
+    "restrictionBlocks": [
+      {
+        "value": "CUSTOM:BeginningGrass"
+      }
+    ],
     "restrictionBiomes": [],
     "ignoreBlocks": "AIR_AND_STRUCTURE_BLOCK"
   }
