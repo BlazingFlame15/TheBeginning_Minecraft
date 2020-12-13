@@ -1,42 +1,27 @@
 
 package net.mcreator.beginning.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.block.BlockState;
-
-import net.mcreator.beginning.procedures.SludgeBucketRightClickedOnBlockProcedure;
-import net.mcreator.beginning.itemgroup.BeginningItemGroup;
-import net.mcreator.beginning.BeginningModElements;
-
-import java.util.Map;
-import java.util.HashMap;
-
 @BeginningModElements.ModElement.Tag
-public class SludgeBucketItem extends BeginningModElements.ModElement {
-	@ObjectHolder("beginning:sludge_bucket")
+public class SludgeResistantBucketItem extends BeginningModElements.ModElement {
+
+	@ObjectHolder("beginning:sludge_resistant_bucket")
 	public static final Item block = null;
-	public SludgeBucketItem(BeginningModElements instance) {
-		super(instance, 45);
+
+	public SludgeResistantBucketItem(BeginningModElements instance) {
+		super(instance, 46);
+
 	}
 
 	@Override
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
+
 		public ItemCustom() {
 			super(new Item.Properties().group(BeginningItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON));
-			setRegistryName("sludge_bucket");
+			setRegistryName("sludge_resistant_bucket");
 		}
 
 		@Override
@@ -67,14 +52,18 @@ public class SludgeBucketItem extends BeginningModElements.ModElement {
 			ItemStack itemstack = context.getItem();
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
+
 				$_dependencies.put("entity", entity);
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				SludgeBucketRightClickedOnBlockProcedure.executeProcedure($_dependencies);
+
+				SludgeResistantBucketRightClickedOnBlockProcedure.executeProcedure($_dependencies);
 			}
 			return retval;
 		}
+
 	}
+
 }

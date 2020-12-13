@@ -1,0 +1,104 @@
+package net.mcreator.beginning.procedures;
+
+@BeginningModElements.ModElement.Tag
+public class SludgeResistantBucketRightClickedOnBlockProcedure extends BeginningModElements.ModElement {
+
+	public SludgeResistantBucketRightClickedOnBlockProcedure(BeginningModElements instance) {
+		super(instance, 46);
+
+	}
+
+	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				System.err.println("Failed to load dependency entity for procedure SludgeResistantBucketRightClickedOnBlock!");
+			return;
+		}
+		if (dependencies.get("x") == null) {
+			if (!dependencies.containsKey("x"))
+				System.err.println("Failed to load dependency x for procedure SludgeResistantBucketRightClickedOnBlock!");
+			return;
+		}
+		if (dependencies.get("y") == null) {
+			if (!dependencies.containsKey("y"))
+				System.err.println("Failed to load dependency y for procedure SludgeResistantBucketRightClickedOnBlock!");
+			return;
+		}
+		if (dependencies.get("z") == null) {
+			if (!dependencies.containsKey("z"))
+				System.err.println("Failed to load dependency z for procedure SludgeResistantBucketRightClickedOnBlock!");
+			return;
+		}
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				System.err.println("Failed to load dependency world for procedure SludgeResistantBucketRightClickedOnBlock!");
+			return;
+		}
+
+		Entity entity = (Entity) dependencies.get("entity");
+		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
+		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
+		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+		IWorld world = (IWorld) dependencies.get("world");
+
+		if ((/*@BlockState*/(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getFluidState().isSource())) {
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
+				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(SludgeBucketItem.block, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
+			} else if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
+				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)).shrink((int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(SludgeBucketItem.block, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
+			}
+		} else if ((/*@BlockState*/(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == Blocks.WATER
+				.getDefaultState().getBlock())) {
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
+				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(Items.WATER_BUCKET, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
+			} else if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
+				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)).shrink((int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(Items.WATER_BUCKET, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
+			}
+		} else if ((/*@BlockState*/(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == Blocks.LAVA
+				.getDefaultState().getBlock())) {
+			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
+				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(Items.LAVA_BUCKET, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
+			} else if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)
+					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
+				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemOffhand() : ItemStack.EMPTY)).shrink((int) 1);
+				if (entity instanceof PlayerEntity) {
+					ItemStack _setstack = new ItemStack(Items.LAVA_BUCKET, (int) (1));
+					_setstack.setCount((int) 1);
+					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
+				}
+			}
+		}
+
+	}
+
+}
