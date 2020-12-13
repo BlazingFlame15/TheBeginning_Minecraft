@@ -26,7 +26,6 @@ import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.Items;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.BucketItem;
 import net.minecraft.fluid.Fluid;
@@ -41,6 +40,7 @@ import net.minecraft.block.Block;
 
 import net.mcreator.beginning.world.dimension.TheBeginningDimension;
 import net.mcreator.beginning.procedures.SludgeMobplayerCollidesBlockProcedure;
+import net.mcreator.beginning.itemgroup.BeginningItemGroup;
 import net.mcreator.beginning.BeginningModElements;
 
 import java.util.Random;
@@ -95,8 +95,9 @@ public class SludgeBlock extends BeginningModElements.ModElement {
 				}
 			}
 		}.setRegistryName("sludge"));
-		elements.items.add(() -> new BucketItem(still, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC))
-				.setRegistryName("sludge_bucket"));
+		elements.items
+				.add(() -> new BucketItem(still, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(BeginningItemGroup.tab))
+						.setRegistryName("sludge_bucket"));
 	}
 
 	@Override

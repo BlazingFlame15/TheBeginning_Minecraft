@@ -500,14 +500,23 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "scrap"
+    },
+    {
+      "name": "SludgeBucket",
+      "type": "item",
+      "sortid": 45,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_bucket"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "item.beginning.beginnus_eye": "Beginnus Eye",
       "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
+      "item.beginning.beginnus_eye": "Beginnus Eye",
       "block.beginning.beginning_wood": "Beginning Log",
       "item.beginning.exit_key": "Exit Key",
       "itemGroup.tabbeginning": "Beginning",
@@ -523,6 +532,7 @@
       "block.beginning.beginningportalblock": "Beginningportalblock",
       "block.beginning.beginning_dirt": "Beginning Dirt",
       "biome.beginning.beginningbiome": "Beginning Biome",
+      "block.beginning.scrap": "Scrap",
       "entity.beginning.the_eye_of_beginnus": "The Eye Of Beginnus",
       "fluid.sludge": "Sludge",
       "block.beginning.yellowstone": "Yellowstone",
