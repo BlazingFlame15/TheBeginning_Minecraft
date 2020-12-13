@@ -25,9 +25,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.item.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.BucketItem;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.entity.Entity;
@@ -40,7 +38,6 @@ import net.minecraft.block.Block;
 
 import net.mcreator.beginning.world.dimension.TheBeginningDimension;
 import net.mcreator.beginning.procedures.SludgeMobplayerCollidesBlockProcedure;
-import net.mcreator.beginning.itemgroup.BeginningItemGroup;
 import net.mcreator.beginning.BeginningModElements;
 
 import java.util.Random;
@@ -78,7 +75,7 @@ public class SludgeBlock extends BeginningModElements.ModElement {
 	public void initElements() {
 		fluidproperties = new ForgeFlowingFluid.Properties(() -> still, () -> flowing,
 				FluidAttributes.builder(new ResourceLocation("beginning:blocks/sludgestill"), new ResourceLocation("beginning:blocks/sludeanimate"))
-						.luminosity(0).density(5000).viscosity(5000)).bucket(() -> bucket).block(() -> block);
+						.luminosity(1).density(5000).viscosity(5000)).block(() -> block);
 		still = (FlowingFluid) new ForgeFlowingFluid.Source(fluidproperties).setRegistryName("sludge");
 		flowing = (FlowingFluid) new ForgeFlowingFluid.Flowing(fluidproperties).setRegistryName("sludge_flowing");
 		elements.blocks.add(() -> new FlowingFluidBlock(still, Block.Properties.create(Material.WATER)) {
@@ -95,9 +92,6 @@ public class SludgeBlock extends BeginningModElements.ModElement {
 				}
 			}
 		}.setRegistryName("sludge"));
-		elements.items
-				.add(() -> new BucketItem(still, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(BeginningItemGroup.tab))
-						.setRegistryName("sludge_bucket"));
 	}
 
 	@Override
