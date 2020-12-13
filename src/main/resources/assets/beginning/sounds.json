@@ -7,14 +7,5 @@
         "stream": false
       }
     ]
-  },
-  "laser2": {
-    "category": "master",
-    "sounds": [
-      {
-        "name": "beginning:recording_34",
-        "stream": false
-      }
-    ]
   }
 }
