@@ -5,10 +5,10 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import net.minecraft.item.Rarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.block.BlockState;
 
+import net.mcreator.beginning.itemgroup.BeginningItemGroup;
 import net.mcreator.beginning.BeginningModElements;
 
 @BeginningModElements.ModElement.Tag
@@ -25,7 +25,7 @@ public class SludgeBucketItem extends BeginningModElements.ModElement {
 	}
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
-			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));
+			super(new Item.Properties().group(BeginningItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON));
 			setRegistryName("sludge_bucket");
 		}
 

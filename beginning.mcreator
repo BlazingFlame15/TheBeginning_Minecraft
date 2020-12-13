@@ -509,14 +509,56 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "sludge_bucket"
+    },
+    {
+      "name": "SludgeResistantBucket",
+      "type": "item",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_resistant_bucket"
+    },
+    {
+      "name": "SludgeResistantBucketRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 46,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_resistant_bucket_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
-      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
       "item.beginning.beginnus_eye": "Beginnus Eye",
+      "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
       "block.beginning.beginning_wood": "Beginning Log",
       "item.beginning.exit_key": "Exit Key",
       "itemGroup.tabbeginning": "Beginning",
@@ -526,6 +568,7 @@
       "item.beginning.sludge_bucket": "Sludge Bucket",
       "item.beginning.temporarybow": "Uncraftablebow",
       "block.beginning.begblock": "Beginning Dirt",
+      "item.beginning.sludge_resistant_bucket": "Sludge Resistant Bucket",
       "block.beginning.beginning_leaves": "Beginning Leaves",
       "item.beginning.the_beginning": "Portal Key",
       "block.beginning.beginning_grass": "Beginning Grass",

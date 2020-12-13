@@ -1,6 +1,6 @@
 {
-  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "item.beginning.beginnus_eye": "Beginnus Eye",
+  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "block.beginning.beginning_wood": "Beginning Log",
   "item.beginning.exit_key": "Exit Key",
   "itemGroup.tabbeginning": "Beginning",
@@ -10,6 +10,7 @@
   "item.beginning.sludge_bucket": "Sludge Bucket",
   "item.beginning.temporarybow": "Uncraftablebow",
   "block.beginning.begblock": "Beginning Dirt",
+  "item.beginning.sludge_resistant_bucket": "Sludge Resistant Bucket",
   "block.beginning.beginning_leaves": "Beginning Leaves",
   "item.beginning.the_beginning": "Portal Key",
   "block.beginning.beginning_grass": "Beginning Grass",
