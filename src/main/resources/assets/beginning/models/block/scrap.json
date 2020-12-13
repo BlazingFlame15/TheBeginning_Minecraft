@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "beginning:blocks/scrapore",
+    "up": "beginning:blocks/scrapore",
+    "north": "beginning:blocks/scrapore",
+    "east": "beginning:blocks/scrapore",
+    "south": "beginning:blocks/scrapore",
+    "west": "beginning:blocks/scrapore",
+    "particle": "beginning:blocks/scrapore"
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "item.beginning.beginnus_eye": "Beginnus Eye",
+  "item.beginning.beginningsaplingitem": "Beginningsaplingitem",
   "block.beginning.beginning_wood": "Beginning Log",
   "item.beginning.exit_key": "Exit Key",
   "itemGroup.tabbeginning": "Beginning",
@@ -16,6 +16,7 @@
   "block.beginning.beginningportalblock": "Beginningportalblock",
   "block.beginning.beginning_dirt": "Beginning Dirt",
   "biome.beginning.beginningbiome": "Beginning Biome",
+  "block.beginning.scrap": "Scrap",
   "entity.beginning.the_eye_of_beginnus": "The Eye Of Beginnus",
   "fluid.sludge": "Sludge",
   "block.beginning.yellowstone": "Yellowstone",
