@@ -33,7 +33,7 @@ public class FlyingProcedure extends BeginningModElements.ModElement {
 		Entity entity = (Entity) dependencies.get("entity");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		if (entity instanceof PlayerEntity) {
-			((PlayerEntity) entity).abilities.isFlying = (y < 70);
+			((PlayerEntity) entity).abilities.isFlying = (y >= 70);
 			((PlayerEntity) entity).sendPlayerAbilities();
 		}
 	}
