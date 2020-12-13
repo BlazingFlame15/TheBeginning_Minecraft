@@ -11,6 +11,8 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
+import net.minecraft.world.World;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.item.Items;
 import net.minecraft.item.ItemGroup;
@@ -18,13 +20,19 @@ import net.minecraft.item.Item;
 import net.minecraft.item.BucketItem;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FlowingFluid;
+import net.minecraft.entity.Entity;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.FlowingFluidBlock;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import net.mcreator.beginning.procedures.ConvertismMobplayerCollidesBlockProcedure;
 import net.mcreator.beginning.BeginningModElements;
+
+import java.util.Map;
+import java.util.HashMap;
 
 @BeginningModElements.ModElement.Tag
 public class ConvertismBlock extends BeginningModElements.ModElement {
@@ -61,6 +69,18 @@ public class ConvertismBlock extends BeginningModElements.ModElement {
 		still = (FlowingFluid) new ForgeFlowingFluid.Source(fluidproperties).setRegistryName("convertism");
 		flowing = (FlowingFluid) new ForgeFlowingFluid.Flowing(fluidproperties).setRegistryName("convertism_flowing");
 		elements.blocks.add(() -> new FlowingFluidBlock(still, Block.Properties.create(Material.WATER)) {
+			@Override
+			public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
+				super.onEntityCollision(state, world, pos, entity);
+				int x = pos.getX();
+				int y = pos.getY();
+				int z = pos.getZ();
+				{
+					Map<String, Object> $_dependencies = new HashMap<>();
+					$_dependencies.put("entity", entity);
+					ConvertismMobplayerCollidesBlockProcedure.executeProcedure($_dependencies);
+				}
+			}
 		}.setRegistryName("convertism"));
 		elements.items.add(() -> new BucketItem(still, new Item.Properties().containerItem(Items.BUCKET).maxStackSize(1).group(ItemGroup.MISC))
 				.setRegistryName("convertism_bucket"));
