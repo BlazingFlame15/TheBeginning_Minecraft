@@ -1,20 +1,72 @@
 
 package net.mcreator.beginning.block;
 
+import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.items.wrapper.SidedInvWrapper;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.common.capabilities.Capability;
+
+import net.minecraft.world.storage.loot.LootContext;
+import net.minecraft.world.World;
+import net.minecraft.world.IBlockReader;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.Hand;
+import net.minecraft.util.Direction;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.LockableLootTileEntity;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.item.BlockItem;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.SoundType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Block;
+
+import net.mcreator.beginning.itemgroup.BeginningItemGroup;
+import net.mcreator.beginning.gui.SludgepumpfuelGui;
+import net.mcreator.beginning.BeginningModElements;
+
+import javax.annotation.Nullable;
+
+import java.util.stream.IntStream;
+import java.util.List;
+import java.util.Collections;
+
+import io.netty.buffer.Unpooled;
 
 @BeginningModElements.ModElement.Tag
 public class SludgePumpBlock extends BeginningModElements.ModElement {
-
 	@ObjectHolder("beginning:sludge_pump")
 	public static final Block block = null;
-
 	@ObjectHolder("beginning:sludge_pump")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
-
 	public SludgePumpBlock(BeginningModElements instance) {
 		super(instance, 48);
-
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -28,20 +80,14 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 	public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
 		event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("sludge_pump"));
 	}
-
 	public static class CustomBlock extends Block {
-
 		public CustomBlock() {
-			super(
-
-					Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).lightValue(0));
-
+			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).lightValue(0));
 			setRegistryName("sludge_pump");
 		}
 
 		@Override
 		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
@@ -52,11 +98,9 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 		public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity entity, Hand hand,
 				BlockRayTraceResult hit) {
 			super.onBlockActivated(state, world, pos, entity, hand, hit);
-
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-
 			if (entity instanceof ServerPlayerEntity) {
 				NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
 					@Override
@@ -71,7 +115,6 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 					}
 				}, new BlockPos(x, y, z));
 			}
-
 			return ActionResultType.SUCCESS;
 		}
 
@@ -97,13 +140,10 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 			TileEntity tileentity = world.getTileEntity(pos);
 			return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
 		}
-
 	}
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
-
 		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(1, ItemStack.EMPTY);
-
 		protected CustomTileEntity() {
 			super(tileEntityType);
 		}
@@ -111,13 +151,10 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 		@Override
 		public void read(CompoundNBT compound) {
 			super.read(compound);
-
 			if (!this.checkLootAndRead(compound)) {
 				this.stacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
 			}
-
 			ItemStackHelper.loadAllItems(compound, this.stacks);
-
 			if (compound.get("fluidTank") != null)
 				CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.readNBT(fluidTank, null, compound.get("fluidTank"));
 		}
@@ -125,13 +162,10 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 		@Override
 		public CompoundNBT write(CompoundNBT compound) {
 			super.write(compound);
-
 			if (!this.checkLootAndWrite(compound)) {
 				ItemStackHelper.saveAllItems(compound, this.stacks);
 			}
-
 			compound.put("fluidTank", CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY.writeNBT(fluidTank, null));
-
 			return compound;
 		}
 
@@ -212,15 +246,12 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 		public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
 			return true;
 		}
-
 		private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
-
 		private final FluidTank fluidTank = new FluidTank(8000, fs -> {
 			if (fs.getFluid() == SludgeBlock.flowing)
 				return true;
 			if (fs.getFluid() == SludgeBlock.still)
 				return true;
-
 			return false;
 		}) {
 			@Override
@@ -230,15 +261,12 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 				world.notifyBlockUpdate(pos, world.getBlockState(pos), world.getBlockState(pos), 2);
 			}
 		};
-
 		@Override
 		public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
 			if (!this.removed && facing != null && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 				return handlers[facing.ordinal()].cast();
-
 			if (!this.removed && capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY)
 				return LazyOptional.of(() -> fluidTank).cast();
-
 			return super.getCapability(capability, facing);
 		}
 
@@ -248,7 +276,5 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 			for (LazyOptional<? extends IItemHandler> handler : handlers)
 				handler.invalidate();
 		}
-
 	}
-
 }

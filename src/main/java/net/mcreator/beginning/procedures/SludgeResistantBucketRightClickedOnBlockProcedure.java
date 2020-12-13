@@ -1,11 +1,26 @@
 package net.mcreator.beginning.procedures;
 
+import net.minecraftforge.items.ItemHandlerHelper;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
+
+import net.mcreator.beginning.item.SludgeResistantBucketItem;
+import net.mcreator.beginning.item.SludgeBucketItem;
+import net.mcreator.beginning.BeginningModElements;
+
+import java.util.Map;
+
 @BeginningModElements.ModElement.Tag
 public class SludgeResistantBucketRightClickedOnBlockProcedure extends BeginningModElements.ModElement {
-
 	public SludgeResistantBucketRightClickedOnBlockProcedure(BeginningModElements instance) {
 		super(instance, 46);
-
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -34,14 +49,12 @@ public class SludgeResistantBucketRightClickedOnBlockProcedure extends Beginning
 				System.err.println("Failed to load dependency world for procedure SludgeResistantBucketRightClickedOnBlock!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-
-		if ((/*@BlockState*/(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getFluidState().isSource())) {
+		if ((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getFluidState().isSource())) {
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
 				(((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).shrink((int) 1);
@@ -59,7 +72,7 @@ public class SludgeResistantBucketRightClickedOnBlockProcedure extends Beginning
 					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
 				}
 			}
-		} else if ((/*@BlockState*/(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == Blocks.WATER
+		} else if ((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == Blocks.WATER
 				.getDefaultState().getBlock())) {
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
@@ -78,7 +91,7 @@ public class SludgeResistantBucketRightClickedOnBlockProcedure extends Beginning
 					ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
 				}
 			}
-		} else if ((/*@BlockState*/(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == Blocks.LAVA
+		} else if ((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == Blocks.LAVA
 				.getDefaultState().getBlock())) {
 			if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 					.getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
@@ -98,7 +111,5 @@ public class SludgeResistantBucketRightClickedOnBlockProcedure extends Beginning
 				}
 			}
 		}
-
 	}
-
 }
