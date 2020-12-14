@@ -2,6 +2,7 @@ package net.mcreator.beginning.procedures;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.math.BlockPos;
@@ -15,6 +16,7 @@ import net.mcreator.beginning.BeginningModVariables;
 import net.mcreator.beginning.BeginningModElements;
 
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 @BeginningModElements.ModElement.Tag
@@ -48,7 +50,16 @@ public class YellowFuelProcedure extends BeginningModElements.ModElement {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((BeginningModVariables.MapVariables.get(world).GlobalFuel) <= 1000)) {
+		if ((((BeginningModVariables.MapVariables.get(world).GlobalFuel) < 1000) && (!((new Object() {
+			public int getFluidTankLevel(BlockPos pos, int tank) {
+				AtomicInteger _retval = new AtomicInteger(0);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null)
+					_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
+							.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
+				return _retval.get();
+			}
+		}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), (int) 1)) == 8000)))) {
 			if (((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
