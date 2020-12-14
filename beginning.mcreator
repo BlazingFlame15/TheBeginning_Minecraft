@@ -943,6 +943,24 @@
           }
         ]
       }
+    },
+    {
+      "name": "BeginiumArrow",
+      "type": "item",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginium_arrow"
+    },
+    {
+      "name": "BeginiumBow",
+      "type": "gun",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginium_bow"
     }
   ],
   "variable_elements": [],
@@ -974,6 +992,7 @@
   ],
   "language_map": {
     "en_us": {
+      "item.beginning.beginium_arrow": "Beginium Arrow",
       "item.beginning.beginningsaplingitem": "Beginning Sapling",
       "item.beginning.beginnus_eye": "Beginnus Eye",
       "fluid.convertism": "Convertism",
@@ -1010,6 +1029,7 @@
       "block.beginning.beginium": "Beginium",
       "block.beginning.beginning_stone": "Beginning Stone",
       "subtitles.lasergfun": "",
+      "item.beginning.beginium_bow": "Beginium Bow",
       "item.beginning.the_eye_of_beginnus_spawn_egg": "The Eye Of Beginnus Spawn Egg"
     }
   },
