@@ -14,7 +14,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraft.world.server.ServerBossInfo;
 import net.minecraft.world.World;
 import net.minecraft.world.BossInfo;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.DamageSource;
@@ -24,16 +23,8 @@ import net.minecraft.item.SpawnEggItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.ai.goal.RangedAttackGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.entity.ai.goal.HurtByTargetGoal;
-import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.controller.FlyingMovementController;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.LivingEntity;
@@ -53,10 +44,8 @@ import net.mcreator.beginning.item.TemporarybowItem;
 import net.mcreator.beginning.item.BeginnusEyeItem;
 import net.mcreator.beginning.BeginningModElements;
 
-import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
-import java.util.EnumSet;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -72,7 +61,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@Override
 	public void initElements() {
 		entity = (EntityType.Builder.<CustomEntity>create(CustomEntity::new, EntityClassification.MONSTER).setShouldReceiveVelocityUpdates(true)
-				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(3.5f, 3.5f)).build("the_eye_of_beginnus")
+				.setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(CustomEntity::new).size(3.2f, 3.2f)).build("the_eye_of_beginnus")
 						.setRegistryName("the_eye_of_beginnus");
 		elements.entities.add(() -> entity);
 		elements.items.add(() -> new SpawnEggItem(entity, -13369549, -13369549, new Item.Properties().group(BeginningItemGroup.tab))
@@ -83,10 +72,10 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
-			return new MobRenderer(renderManager, new Modelghasr4(), 3.5f) {
+			return new MobRenderer(renderManager, new Modelghasr4(), 3.1999999999999997f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("beginning:textures/eyeofbeginnus69.png");
+					return new ResourceLocation("beginning:textures/eye.png");
 				}
 			};
 		});
@@ -113,60 +102,6 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 		@Override
 		protected void registerGoals() {
 			super.registerGoals();
-			this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, (float) 3));
-			this.goalSelector.addGoal(2, new Goal() {
-				{
-					this.setMutexFlags(EnumSet.of(Goal.Flag.MOVE));
-				}
-				public boolean shouldExecute() {
-					if (CustomEntity.this.getAttackTarget() != null && !CustomEntity.this.getMoveHelper().isUpdating()) {
-						return true;
-					} else {
-						return false;
-					}
-				}
-
-				@Override
-				public boolean shouldContinueExecuting() {
-					return CustomEntity.this.getMoveHelper().isUpdating() && CustomEntity.this.getAttackTarget() != null
-							&& CustomEntity.this.getAttackTarget().isAlive();
-				}
-
-				@Override
-				public void startExecuting() {
-					LivingEntity livingentity = CustomEntity.this.getAttackTarget();
-					Vec3d vec3d = livingentity.getEyePosition(1);
-					CustomEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 1);
-				}
-
-				@Override
-				public void tick() {
-					LivingEntity livingentity = CustomEntity.this.getAttackTarget();
-					if (CustomEntity.this.getBoundingBox().intersects(livingentity.getBoundingBox())) {
-						CustomEntity.this.attackEntityAsMob(livingentity);
-					} else {
-						double d0 = CustomEntity.this.getDistanceSq(livingentity);
-						if (d0 < 16) {
-							Vec3d vec3d = livingentity.getEyePosition(1);
-							CustomEntity.this.moveController.setMoveTo(vec3d.x, vec3d.y, vec3d.z, 1);
-						}
-					}
-				}
-			});
-			this.goalSelector.addGoal(3, new RandomWalkingGoal(this, 1.5, 20) {
-				@Override
-				protected Vec3d getPosition() {
-					Random random = CustomEntity.this.getRNG();
-					double dir_x = CustomEntity.this.getPosX() + ((random.nextFloat() * 2 - 1) * 16);
-					double dir_y = CustomEntity.this.getPosY() + ((random.nextFloat() * 2 - 1) * 16);
-					double dir_z = CustomEntity.this.getPosZ() + ((random.nextFloat() * 2 - 1) * 16);
-					return new Vec3d(dir_x, dir_y, dir_z);
-				}
-			});
-			this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.2, false));
-			this.goalSelector.addGoal(5, new LookRandomlyGoal(this));
-			this.targetSelector.addGoal(6, new NearestAttackableTargetGoal(this, PlayerEntity.class, false, false));
-			this.targetSelector.addGoal(7, new HurtByTargetGoal(this));
 			this.goalSelector.addGoal(1, new RangedAttackGoal(this, 1.25, 20, 10) {
 				@Override
 				public boolean shouldContinueExecuting() {
@@ -187,7 +122,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 
 		@Override
 		public double getMountedYOffset() {
-			return super.getMountedYOffset() + 3.5;
+			return super.getMountedYOffset() + 3.1999999999999997;
 		}
 
 		protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
