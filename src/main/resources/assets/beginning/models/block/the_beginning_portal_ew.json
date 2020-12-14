@@ -1,7 +1,7 @@
 {
   "textures": {
-    "particle": "beginning:blocks/wood",
-    "portal": "beginning:blocks/wood"
+    "particle": "beginning:blocks/portalinsideside",
+    "portal": "beginning:blocks/portalinsideside"
   },
   "elements": [
     {

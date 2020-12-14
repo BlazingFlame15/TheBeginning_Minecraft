@@ -17,7 +17,7 @@
       "value": "CUSTOM:Beginning"
     },
     "texture": "exitkey",
-    "portalTexture": "wood",
+    "portalTexture": "portalinsideside",
     "enablePortal": true,
     "biomesInDimension": [
       {
