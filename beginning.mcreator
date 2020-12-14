@@ -774,6 +774,14 @@
       ],
       "category": "master",
       "subtitle": ""
+    },
+    {
+      "name": "eyebeginnushurtsound",
+      "files": [
+        "recording_40_online-audio-converter.com"
+      ],
+      "category": "master",
+      "subtitle": ""
     }
   ],
   "language_map": {
@@ -782,8 +790,8 @@
       "item.beginning.beginnus_eye": "Beginnus Eye",
       "fluid.convertism": "Convertism",
       "block.beginning.beginning_wood": "Beginning Log",
-      "block.beginning.sludge_pump": "Sludge Pump",
       "item.beginning.exit_key": "Exit Key",
+      "block.beginning.sludge_pump": "Sludge Pump",
       "itemGroup.tabbeginning": "Beginning",
       "block.beginning.beginningsapling": "Beginning Sapling",
       "block.beginning.portal_inside_block": "Portal Inside Block",
@@ -797,6 +805,7 @@
       "entity.beginning.void_reaper": "Void Reaper",
       "block.beginning.beginning_leaves": "Beginning Leaves",
       "item.beginning.the_beginning": "Portal Key",
+      "subtitles.eyebeginnushurtsound": "",
       "item.beginning.void_reaper_spawn_egg": "Void Reaper Spawn Egg",
       "block.beginning.beginning_grass": "Beginning Grass",
       "block.beginning.beginningportalblock": "Beginningportalblock",

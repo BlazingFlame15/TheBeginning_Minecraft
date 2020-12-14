@@ -4,8 +4,8 @@
   "definition": {
     "mobName": "The Eye Of Beginnus",
     "mobLabel": "",
-    "mobModelName": "Modelghasr4",
-    "mobModelTexture": "eye.png",
+    "mobModelName": "Modelbig_ghast_boi",
+    "mobModelTexture": "sludgeanimate.png",
     "mobModelGlowTexture": "",
     "modelWidth": 3.2,
     "modelHeight": 3.2,
@@ -78,7 +78,7 @@
       "value": ""
     },
     "hurtSound": {
-      "value": "entity.enderdragon.hurt"
+      "value": "CUSTOM:eyebeginnushurtsound"
     },
     "deathSound": {
       "value": "entity.generic.death"
