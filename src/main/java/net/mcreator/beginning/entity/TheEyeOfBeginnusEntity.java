@@ -46,15 +46,12 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.block.BlockState;
 
-import net.mcreator.beginning.procedures.FlyingProcedure;
 import net.mcreator.beginning.itemgroup.BeginningItemGroup;
 import net.mcreator.beginning.item.TemporarybowItem;
 import net.mcreator.beginning.item.BeginnusEyeItem;
 import net.mcreator.beginning.BeginningModElements;
 
 import java.util.Random;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.EnumSet;
 
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -85,7 +82,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 			return new MobRenderer(renderManager, new Modelbig_ghast_boi(), 2.1999999999999997f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("beginning:textures/sludgeanimate.png");
+					return new ResourceLocation("beginning:textures/000000eyeyeye.png");
 				}
 			};
 		});
@@ -205,16 +202,6 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 
 		@Override
 		public boolean onLivingFall(float l, float d) {
-			double x = this.getPosX();
-			double y = this.getPosY();
-			double z = this.getPosZ();
-			Entity entity = this;
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("y", y);
-				FlyingProcedure.executeProcedure($_dependencies);
-			}
 			return false;
 		}
 

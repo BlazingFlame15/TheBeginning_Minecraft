@@ -427,16 +427,7 @@
       "ids": {},
       "registry_name": "flying",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          }
-        ]
+        "dependencies": []
       }
     },
     {
