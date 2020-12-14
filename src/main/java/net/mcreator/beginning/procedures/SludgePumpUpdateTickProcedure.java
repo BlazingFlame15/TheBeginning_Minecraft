@@ -109,6 +109,13 @@ public class SludgePumpUpdateTickProcedure extends BeginningModElements.ModEleme
 					});
 				}
 			}
+			{
+				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+				int _amount = (int) 1000;
+				if (_ent != null)
+					_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
+							.ifPresent(capability -> capability.drain(_amount, IFluidHandler.FluidAction.EXECUTE));
+			}
 		}
 	}
 }
