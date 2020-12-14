@@ -1,15 +1,58 @@
 
 package net.mcreator.beginning.item;
 
+import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.fml.network.FMLPlayMessages;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.world.World;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.ActionResult;
+import net.minecraft.network.IPacket;
+import net.minecraft.item.UseAction;
+import net.minecraft.item.ShootableItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Item;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.IRendersAsItem;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.Entity;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.Vector3f;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.IRenderTypeBuffer;
+
+import net.mcreator.beginning.BeginningModElements;
+
+import java.util.Random;
+
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import com.mojang.blaze3d.matrix.MatrixStack;
+
 @BeginningModElements.ModElement.Tag
 public class BeginiumBowItem extends BeginningModElements.ModElement {
-
 	@ObjectHolder("beginning:beginium_bow")
 	public static final Item block = null;
-
 	@ObjectHolder("beginning:entitybulletbeginium_bow")
 	public static final EntityType arrow = null;
-
 	public BeginiumBowItem(BeginningModElements instance) {
 		super(instance, 64);
 	}
@@ -27,12 +70,9 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 	public void init(FMLCommonSetupEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(arrow, renderManager -> new CustomRender(renderManager));
 	}
-
 	public static class ItemRanged extends Item {
-
 		public ItemRanged() {
 			super(new Item.Properties().group(ItemGroup.COMBAT).maxDamage(100));
-
 			setRegistryName("beginium_bow");
 		}
 
@@ -60,22 +100,44 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
 				if (true) {
-
-					ArrowCustomEntity entityarrow = shoot(world, entity, random, 1f, 5, 5);
-
-					itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
-
-					entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
-
+					ItemStack stack = ShootableItem.getHeldAmmo(entity,
+							e -> e.getItem() == new ItemStack(BeginiumArrowItem.block, (int) (1)).getItem());
+					if (stack == ItemStack.EMPTY) {
+						for (int i = 0; i < entity.inventory.mainInventory.size(); i++) {
+							ItemStack teststack = entity.inventory.mainInventory.get(i);
+							if (teststack != null && teststack.getItem() == new ItemStack(BeginiumArrowItem.block, (int) (1)).getItem()) {
+								stack = teststack;
+								break;
+							}
+						}
+					}
+					if (entity.abilities.isCreativeMode || stack != ItemStack.EMPTY) {
+						ArrowCustomEntity entityarrow = shoot(world, entity, random, 1f, 5, 5);
+						itemstack.damageItem(1, entity, e -> e.sendBreakAnimation(entity.getActiveHand()));
+						if (entity.abilities.isCreativeMode) {
+							entityarrow.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
+						} else {
+							if (new ItemStack(BeginiumArrowItem.block, (int) (1)).isDamageable()) {
+								if (stack.attemptDamageItem(1, random, entity)) {
+									stack.shrink(1);
+									stack.setDamage(0);
+									if (stack.isEmpty())
+										entity.inventory.deleteStack(stack);
+								}
+							} else {
+								stack.shrink(1);
+								if (stack.isEmpty())
+									entity.inventory.deleteStack(stack);
+							}
+						}
+					}
 				}
 			}
 		}
-
 	}
 
 	@OnlyIn(value = Dist.CLIENT, _interface = IRendersAsItem.class)
 	public static class ArrowCustomEntity extends AbstractArrowEntity implements IRendersAsItem {
-
 		public ArrowCustomEntity(FMLPlayMessages.SpawnEntity packet, World world) {
 			super(arrow, world);
 		}
@@ -105,7 +167,7 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 
 		@Override
 		protected ItemStack getArrowStack() {
-			return null;
+			return new ItemStack(BeginiumArrowItem.block, (int) (1));
 		}
 
 		@Override
@@ -126,12 +188,10 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 				this.remove();
 			}
 		}
-
 	}
 
 	public static class CustomRender extends EntityRenderer<ArrowCustomEntity> {
 		private static final ResourceLocation texture = new ResourceLocation("beginning:textures/0000beginiumblue.png");
-
 		public CustomRender(EntityRendererManager renderManager) {
 			super(renderManager);
 		}
@@ -146,7 +206,6 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 			EntityModel model = new Modelbeginiumarrow();
 			model.render(matrixStackIn, vb, packedLightIn, OverlayTexture.NO_OVERLAY, 1, 1, 1, 0.0625f);
 			matrixStackIn.pop();
-
 			super.render(entityIn, entityYaw, partialTicks, matrixStackIn, bufferIn, packedLightIn);
 		}
 
@@ -159,16 +218,13 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 	// Made with Blockbench 3.7.4
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-
 	public static class Modelbeginiumarrow extends EntityModel<Entity> {
 		private final ModelRenderer feather;
 		private final ModelRenderer tip;
 		private final ModelRenderer bb_main;
-
 		public Modelbeginiumarrow() {
 			textureWidth = 16;
 			textureHeight = 16;
-
 			feather = new ModelRenderer(this);
 			feather.setRotationPoint(0.0F, 23.0F, 0.0F);
 			feather.setTextureOffset(12, 11).addBox(1.0F, -3.0F, 1.0F, 1.0F, 4.0F, 1.0F, 0.0F, false);
@@ -176,7 +232,6 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 			feather.setTextureOffset(12, 11).addBox(-2.0F, -3.0F, -2.0F, 1.0F, 4.0F, 1.0F, 0.0F, false);
 			feather.setTextureOffset(12, 11).addBox(-2.0F, -3.0F, 1.0F, 1.0F, 4.0F, 1.0F, 0.0F, false);
 			feather.setTextureOffset(0, 0).addBox(-2.0F, -4.0F, -1.0F, 4.0F, 1.0F, 2.0F, 0.0F, false);
-
 			tip = new ModelRenderer(this);
 			tip.setRotationPoint(1.0F, 12.0F, -1.0F);
 			tip.setTextureOffset(0, 12).addBox(-2.0F, -2.0F, 0.0F, 2.0F, 2.0F, 2.0F, 0.0F, false);
@@ -188,7 +243,6 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 			tip.setTextureOffset(0, 13).addBox(1.0F, 0.0F, 0.0F, 1.0F, 1.0F, 2.0F, 0.0F, false);
 			tip.setTextureOffset(1, 14).addBox(-2.0F, 0.0F, -2.0F, 2.0F, 1.0F, 1.0F, 0.0F, false);
 			tip.setTextureOffset(3, 13).addBox(-2.0F, 0.0F, 3.0F, 2.0F, 1.0F, 1.0F, 0.0F, false);
-
 			bb_main = new ModelRenderer(this);
 			bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
 			bb_main.setTextureOffset(0, 0).addBox(-1.0F, -12.0F, -1.0F, 2.0F, 7.0F, 2.0F, 0.0F, false);
@@ -214,7 +268,6 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 			modelRenderer.rotateAngleZ = z;
 		}
 	}
-
 	public static ArrowCustomEntity shoot(World world, LivingEntity entity, Random random, float power, double damage, int knockback) {
 		ArrowCustomEntity entityarrow = new ArrowCustomEntity(arrow, entity, world);
 		entityarrow.shoot(entity.getLookVec().x, entity.getLookVec().y, entity.getLookVec().z, power * 2, 0);
@@ -223,14 +276,12 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 		entityarrow.setDamage(damage);
 		entityarrow.setKnockbackStrength(knockback);
 		world.addEntity(entityarrow);
-
 		double x = entity.getPosX();
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
 				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.arrow.shoot")),
 				SoundCategory.PLAYERS, 1, 1f / (random.nextFloat() * 0.5f + 1) + (power / 2));
-
 		return entityarrow;
 	}
 
@@ -240,21 +291,17 @@ public class BeginiumBowItem extends BeginningModElements.ModElement {
 		double d1 = target.getPosX() - entity.getPosX();
 		double d3 = target.getPosZ() - entity.getPosZ();
 		entityarrow.shoot(d1, d0 - entityarrow.getPosY() + (double) MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F, d3, 1f * 2, 12.0F);
-
 		entityarrow.setSilent(true);
 		entityarrow.setDamage(5);
 		entityarrow.setKnockbackStrength(5);
 		entityarrow.setIsCritical(false);
 		entity.world.addEntity(entityarrow);
-
 		double x = entity.getPosX();
 		double y = entity.getPosY();
 		double z = entity.getPosZ();
 		entity.world.playSound((PlayerEntity) null, (double) x, (double) y, (double) z,
 				(net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.arrow.shoot")),
 				SoundCategory.PLAYERS, 1, 1f / (new Random().nextFloat() * 0.5f + 1));
-
 		return entityarrow;
 	}
-
 }
