@@ -49,8 +49,6 @@ public class BeginningModElements {
 	public BeginningModElements() {
 		sounds.put(new ResourceLocation("beginning", "lasergfun"), new net.minecraft.util.SoundEvent(new ResourceLocation("beginning", "lasergfun")));
 		sounds.put(new ResourceLocation("beginning", "laser2"), new net.minecraft.util.SoundEvent(new ResourceLocation("beginning", "laser2")));
-		sounds.put(new ResourceLocation("beginning", "eyebeginnushurtsound"),
-				new net.minecraft.util.SoundEvent(new ResourceLocation("beginning", "eyebeginnushurtsound")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("beginning").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

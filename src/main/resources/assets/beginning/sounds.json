@@ -16,14 +16,5 @@
         "stream": false
       }
     ]
-  },
-  "eyebeginnushurtsound": {
-    "category": "master",
-    "sounds": [
-      {
-        "name": "beginning:recording_40_online-audio-converter.com",
-        "stream": false
-      }
-    ]
   }
 }
