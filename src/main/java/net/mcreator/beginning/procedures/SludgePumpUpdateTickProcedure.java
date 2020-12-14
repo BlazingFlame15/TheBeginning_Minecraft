@@ -62,14 +62,30 @@ public class SludgePumpUpdateTickProcedure extends BeginningModElements.ModEleme
 		}
 		if (((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlockState()).getBlock() == SludgeBlock.block
 				.getDefaultState().getBlock()) && ((BeginningModVariables.MapVariables.get(world).GlobalFuel) > 0))) {
-			{
-				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
-				int _amount = (int) 1;
-				if (_ent != null)
-					_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
-							.ifPresent(capability -> capability.fill(new FluidStack(SludgeBlock.still, _amount), IFluidHandler.FluidAction.EXECUTE));
+			if (((BeginningModVariables.MapVariables.get(world).GlobalFuel) >= 100)) {
+				{
+					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+					int _amount = (int) 10;
+					if (_ent != null)
+						_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null).ifPresent(
+								capability -> capability.fill(new FluidStack(SludgeBlock.still, _amount), IFluidHandler.FluidAction.EXECUTE));
+				}
+				BeginningModVariables.MapVariables.get(world).GlobalFuel = (double) ((BeginningModVariables.MapVariables.get(world).GlobalFuel) - 10);
+				BeginningModVariables.MapVariables.get(world).syncData(world);
+			} else if ((((BeginningModVariables.MapVariables.get(world).GlobalFuel) <= 100)
+					&& ((BeginningModVariables.MapVariables.get(world).GlobalFuel) > 0))) {
+				{
+					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+					int _amount = (int) 1;
+					if (_ent != null)
+						_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null).ifPresent(
+								capability -> capability.fill(new FluidStack(SludgeBlock.still, _amount), IFluidHandler.FluidAction.EXECUTE));
+				}
+				BeginningModVariables.MapVariables.get(world).GlobalFuel = (double) ((BeginningModVariables.MapVariables.get(world).GlobalFuel) - 1);
+				BeginningModVariables.MapVariables.get(world).syncData(world);
 			}
-		} else if (((new Object() {
+		}
+		if (((new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				TileEntity _ent = world.getTileEntity(pos);
