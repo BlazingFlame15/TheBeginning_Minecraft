@@ -101,7 +101,7 @@
         "value": "CUSTOM:BeginningStone"
       }
     ],
-    "frequencyPerChunks": 5,
+    "frequencyPerChunks": 15,
     "frequencyOnChunk": 6,
     "minGenerateHeight": 0,
     "maxGenerateHeight": 48

@@ -80,7 +80,7 @@ public class YellowstoneBlock extends BeginningModElements.ModElement {
 				if (blockAt.getBlock() == BeginningStoneBlock.block.getDefaultState().getBlock())
 					blockCriteria = true;
 				return blockCriteria;
-			}), block.getDefaultState(), 6)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(5, 0, 0, 48))));
+			}), block.getDefaultState(), 6)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(15, 0, 0, 48))));
 		}
 	}
 }
