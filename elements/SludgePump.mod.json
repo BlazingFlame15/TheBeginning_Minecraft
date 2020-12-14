@@ -104,6 +104,9 @@
         "value": "CUSTOM:Sludge:Flowing"
       }
     ],
+    "onTickUpdate": {
+      "name": "SludgePumpUpdateTick"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [
