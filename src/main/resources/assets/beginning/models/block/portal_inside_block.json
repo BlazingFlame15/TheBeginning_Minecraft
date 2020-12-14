@@ -6,7 +6,7 @@
     "north": "beginning:blocks/portalinsideside",
     "east": "beginning:blocks/portalinsideside",
     "south": "beginning:blocks/portalinsideside",
-    "west": "beginning:blocks/insideportaltop",
+    "west": "beginning:blocks/portalinsideside",
     "particle": "beginning:blocks/portalinsideside"
   }
 }

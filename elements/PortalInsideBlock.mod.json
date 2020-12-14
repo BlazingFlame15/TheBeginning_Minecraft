@@ -6,7 +6,7 @@
     "textureTop": "portalinsideside",
     "textureLeft": "portalinsideside",
     "textureFront": "portalinsideside",
-    "textureRight": "insideportaltop",
+    "textureRight": "portalinsideside",
     "textureBack": "portalinsideside",
     "renderType": 10,
     "customModelName": "Normal",

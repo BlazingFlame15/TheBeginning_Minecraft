@@ -1,8 +1,10 @@
 {
+  "item.beginning.beginium_arrow": "Beginium Arrow",
   "item.beginning.beginningsaplingitem": "Beginning Sapling",
   "item.beginning.beginnus_eye": "Beginnus Eye",
   "fluid.convertism": "Convertism",
   "block.beginning.beginning_wood": "Beginning Log",
+  "item.beginning.scrap_chunk": "Scrap Chunk",
   "item.beginning.exit_key": "Exit Key",
   "block.beginning.sludge_pump": "Sludge Pump",
   "itemGroup.tabbeginning": "Beginning",
@@ -35,5 +37,6 @@
   "block.beginning.beginium": "Beginium",
   "block.beginning.beginning_stone": "Beginning Stone",
   "subtitles.lasergfun": "",
+  "item.beginning.beginium_bow": "Beginium Bow",
   "item.beginning.the_eye_of_beginnus_spawn_egg": "The Eye Of Beginnus Spawn Egg"
 }
