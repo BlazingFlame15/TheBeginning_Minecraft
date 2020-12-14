@@ -76,7 +76,7 @@
     "particleSpawningRadious": 0.5,
     "particleAmount": 4,
     "hasInventory": true,
-    "guiBoundTo": "Sludgepumpfuel",
+    "guiBoundTo": "SludgePumpGUI",
     "openGUIOnRightClick": true,
     "inventorySize": 1,
     "inventoryStackSize": 64,

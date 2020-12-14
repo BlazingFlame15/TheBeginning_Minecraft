@@ -604,15 +604,6 @@
       "registry_name": "sludge_resistant_bucket"
     },
     {
-      "name": "Sludgepumpfuel",
-      "type": "gui",
-      "sortid": 49,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "sludgepumpfuel"
-    },
-    {
       "name": "YellowFuel",
       "type": "procedure",
       "sortid": 50,
@@ -755,35 +746,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "beginning_plank"
-    },
-    {
-      "name": "FuelAmountInPump",
-      "type": "procedure",
-      "sortid": 58,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "fuel_amount_in_pump",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
     },
     {
       "name": "BeginningPlanks",
@@ -943,6 +905,15 @@
           }
         ]
       }
+    },
+    {
+      "name": "SludgePumpGUI",
+      "type": "gui",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_pump_gui"
     }
   ],
   "variable_elements": [],

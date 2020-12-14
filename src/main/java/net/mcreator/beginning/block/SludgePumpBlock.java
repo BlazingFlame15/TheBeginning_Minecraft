@@ -51,7 +51,7 @@ import net.minecraft.block.Block;
 
 import net.mcreator.beginning.procedures.SludgepumpfuelprocedureProcedure;
 import net.mcreator.beginning.itemgroup.BeginningItemGroup;
-import net.mcreator.beginning.gui.SludgepumpfuelGui;
+import net.mcreator.beginning.gui.SludgePumpGUIGui;
 import net.mcreator.beginning.BeginningModElements;
 
 import javax.annotation.Nullable;
@@ -147,7 +147,7 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 
 					@Override
 					public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
-						return new SludgepumpfuelGui.GuiContainerMod(id, inventory,
+						return new SludgePumpGUIGui.GuiContainerMod(id, inventory,
 								new PacketBuffer(Unpooled.buffer()).writeBlockPos(new BlockPos(x, y, z)));
 					}
 				}, new BlockPos(x, y, z));
@@ -246,7 +246,7 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 
 		@Override
 		public Container createMenu(int id, PlayerInventory player) {
-			return new SludgepumpfuelGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
+			return new SludgePumpGUIGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
 		}
 
 		@Override
