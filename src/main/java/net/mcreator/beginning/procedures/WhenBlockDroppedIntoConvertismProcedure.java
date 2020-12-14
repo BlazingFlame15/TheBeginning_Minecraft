@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.item.ItemEntity;
 
 import net.mcreator.beginning.item.YellowstoneIngotItem;
+import net.mcreator.beginning.item.ScrapChunkItem;
 import net.mcreator.beginning.item.BeginiumIngotItem;
 import net.mcreator.beginning.block.YellowstoneBlock;
 import net.mcreator.beginning.block.ScrapBlock;
@@ -82,10 +83,12 @@ public class WhenBlockDroppedIntoConvertismProcedure extends BeginningModElement
 				&& (/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState())
 						.getBlock() == ConvertismBlock.block.getDefaultState().getBlock()))) {
 			((itemstack)).shrink((int) 1);
-			if (!world.getWorld().isRemote) {
-				ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, (y + 1), z, new ItemStack(BeginiumIngotItem.block, (int) (1)));
-				entityToSpawn.setPickupDelay((int) 10);
-				world.addEntity(entityToSpawn);
+			for (int index0 = 0; index0 < (int) (4); index0++) {
+				if (!world.getWorld().isRemote) {
+					ItemEntity entityToSpawn = new ItemEntity(world.getWorld(), x, (y + 1), z, new ItemStack(ScrapChunkItem.block, (int) (1)));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
 			}
 		}
 	}

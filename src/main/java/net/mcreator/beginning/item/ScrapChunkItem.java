@@ -2,13 +2,13 @@
 package net.mcreator.beginning.item;
 
 @BeginningModElements.ModElement.Tag
-public class BeginiumArrowItem extends BeginningModElements.ModElement {
+public class ScrapChunkItem extends BeginningModElements.ModElement {
 
-	@ObjectHolder("beginning:beginium_arrow")
+	@ObjectHolder("beginning:scrap_chunk")
 	public static final Item block = null;
 
-	public BeginiumArrowItem(BeginningModElements instance) {
-		super(instance, 64);
+	public ScrapChunkItem(BeginningModElements instance) {
+		super(instance, 67);
 
 	}
 
@@ -20,8 +20,8 @@ public class BeginiumArrowItem extends BeginningModElements.ModElement {
 	public static class ItemCustom extends Item {
 
 		public ItemCustom() {
-			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));
-			setRegistryName("beginium_arrow");
+			super(new Item.Properties().group(BeginningItemGroup.tab).maxStackSize(16).rarity(Rarity.COMMON));
+			setRegistryName("scrap_chunk");
 		}
 
 		@Override
