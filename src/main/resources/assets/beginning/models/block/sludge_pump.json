@@ -4,9 +4,9 @@
     "down": "beginning:blocks/sludgepumpside",
     "up": "beginning:blocks/sludgepumpside",
     "north": "beginning:blocks/sludgepumpface",
-    "east": "beginning:blocks/sludgepumpface",
+    "east": "beginning:blocks/sludgepumpside",
     "south": "beginning:blocks/sludgepumpface",
-    "west": "beginning:blocks/sludgepumpface",
+    "west": "beginning:blocks/sludgepumpside",
     "particle": "beginning:blocks/sludgepumpside"
   }
 }

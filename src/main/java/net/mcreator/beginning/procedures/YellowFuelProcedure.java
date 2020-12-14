@@ -11,6 +11,7 @@ import net.minecraft.block.BlockState;
 
 import net.mcreator.beginning.item.YellowstoneIngotItem;
 import net.mcreator.beginning.block.YellowstoneBlock;
+import net.mcreator.beginning.BeginningModVariables;
 import net.mcreator.beginning.BeginningModElements;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -75,6 +76,15 @@ public class YellowFuelProcedure extends BeginningModElements.ModElement {
 					}.getValue(new BlockPos((int) x, (int) y, (int) z), "yellowFuel")) + 10));
 				world.getWorld().notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
+			BeginningModVariables.MapVariables.get(world).GlobalFuel = (double) (new Object() {
+				public double getValue(BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(new BlockPos((int) x, (int) y, (int) z), "yellowFuel"));
+			BeginningModVariables.MapVariables.get(world).syncData(world);
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -117,6 +127,15 @@ public class YellowFuelProcedure extends BeginningModElements.ModElement {
 					}.getValue(new BlockPos((int) x, (int) y, (int) z), "yellowFuel")) + 25));
 				world.getWorld().notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
+			BeginningModVariables.MapVariables.get(world).GlobalFuel = (double) (new Object() {
+				public double getValue(BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(new BlockPos((int) x, (int) y, (int) z), "yellowFuel"));
+			BeginningModVariables.MapVariables.get(world).syncData(world);
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {

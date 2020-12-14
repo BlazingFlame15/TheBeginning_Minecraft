@@ -553,15 +553,6 @@
       }
     },
     {
-      "name": "SludgePump",
-      "type": "block",
-      "sortid": 48,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "sludge_pump"
-    },
-    {
       "name": "SludgeBucketRightClickedOnBlock",
       "type": "procedure",
       "sortid": 47,
@@ -611,35 +602,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "yellow_fuel",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "Sludgepumpfuelprocedure",
-      "type": "procedure",
-      "sortid": 51,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "sludgepumpfuelprocedure",
       "metadata": {
         "dependencies": [
           {
@@ -757,156 +719,6 @@
       "registry_name": "beginning_planks"
     },
     {
-      "name": "ZeroPercent",
-      "type": "procedure",
-      "sortid": 59,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "zero_percent",
-      "metadata": {
-        "return_type": "LOGIC",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "TwentyFivePercent",
-      "type": "procedure",
-      "sortid": 60,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "twenty_five_percent",
-      "metadata": {
-        "return_type": "LOGIC",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "FiftyPercent",
-      "type": "procedure",
-      "sortid": 61,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "fifty_percent",
-      "metadata": {
-        "return_type": "LOGIC",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "SeventyFivePercent",
-      "type": "procedure",
-      "sortid": 62,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "seventy_five_percent",
-      "metadata": {
-        "return_type": "LOGIC",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
-      "name": "OneHundredPercent",
-      "type": "procedure",
-      "sortid": 63,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "one_hundred_percent",
-      "metadata": {
-        "return_type": "LOGIC",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      }
-    },
-    {
       "name": "SludgePumpGUI",
       "type": "gui",
       "sortid": 64,
@@ -914,9 +726,64 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "sludge_pump_gui"
+    },
+    {
+      "name": "SludgePump",
+      "type": "block",
+      "sortid": 65,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_pump"
+    },
+    {
+      "name": "SludgePumpUpdateTick",
+      "type": "procedure",
+      "sortid": 66,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "sludge_pump_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
     }
   ],
-  "variable_elements": [],
+  "variable_elements": [
+    {
+      "name": "GlobalFuel",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "GlobalSludge_Pump",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    }
+  ],
   "sound_elements": [
     {
       "name": "lasergfun",
