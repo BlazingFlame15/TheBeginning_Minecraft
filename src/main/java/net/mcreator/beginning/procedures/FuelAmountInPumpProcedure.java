@@ -8,12 +8,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.item.ItemStack;
 
-import net.mcreator.beginning.item.SludgeResistantBucketItem;
 import net.mcreator.beginning.item.SludgeBucketItem;
-import net.mcreator.beginning.BeginningModVariables;
 import net.mcreator.beginning.BeginningModElements;
 
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.Map;
 
 @BeginningModElements.ModElement.Tag
@@ -47,19 +44,7 @@ public class FuelAmountInPumpProcedure extends BeginningModElements.ModElement {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
-			public ItemStack getItemStack(BlockPos pos, int sltid) {
-				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-				TileEntity _ent = world.getTileEntity(pos);
-				if (_ent != null) {
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						_retval.set(capability.getStackInSlot(sltid).copy());
-					});
-				}
-				return _retval.get();
-			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1))
-				.getItem()) && ((BeginningModVariables.MapVariables.get(world).yellowFuel) >= 1000))) {
+		if ((true)) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
