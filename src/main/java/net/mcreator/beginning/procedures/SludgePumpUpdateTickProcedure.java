@@ -62,7 +62,17 @@ public class SludgePumpUpdateTickProcedure extends BeginningModElements.ModEleme
 		}
 		if (((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlockState()).getBlock() == SludgeBlock.block
 				.getDefaultState().getBlock()) && ((BeginningModVariables.MapVariables.get(world).GlobalFuel) > 0))) {
-			if (((BeginningModVariables.MapVariables.get(world).GlobalFuel) >= 100)) {
+			if (((BeginningModVariables.MapVariables.get(world).GlobalFuel) >= 500)) {
+				{
+					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+					int _amount = (int) 50;
+					if (_ent != null)
+						_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null).ifPresent(
+								capability -> capability.fill(new FluidStack(SludgeBlock.still, _amount), IFluidHandler.FluidAction.EXECUTE));
+				}
+				BeginningModVariables.MapVariables.get(world).GlobalFuel = (double) ((BeginningModVariables.MapVariables.get(world).GlobalFuel) - 50);
+				BeginningModVariables.MapVariables.get(world).syncData(world);
+			} else if (((BeginningModVariables.MapVariables.get(world).GlobalFuel) >= 100)) {
 				{
 					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 					int _amount = (int) 10;
