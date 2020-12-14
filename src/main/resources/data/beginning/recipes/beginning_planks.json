@@ -1,0 +1,13 @@
+{
+  "group": "beginning",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "beginning:beginning_wood"
+    }
+  ],
+  "result": {
+    "item": "beginning:beginning_plank",
+    "count": 4
+  }
+}
