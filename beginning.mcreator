@@ -773,6 +773,24 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "scrap_chunk"
+    },
+    {
+      "name": "BeginiumBow",
+      "type": "gun",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginium_bow"
+    },
+    {
+      "name": "BeginiumArrow",
+      "type": "item",
+      "sortid": 64,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "beginium_arrow"
     }
   ],
   "variable_elements": [
@@ -821,7 +839,6 @@
       "item.beginning.beginnus_eye": "Beginnus Eye",
       "fluid.convertism": "Convertism",
       "block.beginning.beginning_wood": "Beginning Log",
-      "item.beginning.scrap_chunk": "Scrap Chunk",
       "item.beginning.exit_key": "Exit Key",
       "block.beginning.sludge_pump": "Sludge Pump",
       "itemGroup.tabbeginning": "Beginning",
