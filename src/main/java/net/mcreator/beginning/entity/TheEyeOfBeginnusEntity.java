@@ -86,7 +86,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 			return new MobRenderer(renderManager, new Modelghasr4(), 3.5f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("beginning:textures/3.png");
+					return new ResourceLocation("beginning:textures/eyeofbeginnus69.png");
 				}
 			};
 		});

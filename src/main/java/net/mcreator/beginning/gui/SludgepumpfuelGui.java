@@ -11,6 +11,7 @@ import net.minecraftforge.fml.network.NetworkEvent;
 import net.minecraftforge.fml.network.IContainerFactory;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.DeferredWorkQueue;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -34,12 +35,21 @@ import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.Minecraft;
 
+import net.mcreator.beginning.procedures.ZeroPercentProcedure;
+import net.mcreator.beginning.procedures.TwentyFivePercentProcedure;
+import net.mcreator.beginning.procedures.SeventyFivePercentProcedure;
+import net.mcreator.beginning.procedures.OneHundredPercentProcedure;
+import net.mcreator.beginning.procedures.FiftyPercentProcedure;
+import net.mcreator.beginning.item.SludgeResistantBucketItem;
 import net.mcreator.beginning.BeginningModElements;
 import net.mcreator.beginning.BeginningMod;
 
 import java.util.function.Supplier;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 import java.util.HashMap;
+
+import com.google.common.collect.ImmutableMap;
 
 @BeginningModElements.ModElement.Tag
 public class SludgepumpfuelGui extends BeginningModElements.ModElement {
@@ -81,7 +91,7 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 			super(containerType, id);
 			this.entity = inv.player;
 			this.world = inv.player.world;
-			this.internal = new ItemStackHandler(1);
+			this.internal = new ItemStackHandler(3);
 			BlockPos pos = null;
 			if (extraData != null) {
 				pos = extraData.readBlockPos();
@@ -121,6 +131,18 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 			}
 			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 7, 31) {
 			}));
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 54, 31) {
+				@Override
+				public boolean isItemValid(ItemStack stack) {
+					return (new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem() == stack.getItem());
+				}
+			}));
+			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 103, 31) {
+				@Override
+				public boolean isItemValid(ItemStack stack) {
+					return false;
+				}
+			}));
 			int si;
 			int sj;
 			for (si = 0; si < 3; ++si)
@@ -146,18 +168,18 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 			if (slot != null && slot.getHasStack()) {
 				ItemStack itemstack1 = slot.getStack();
 				itemstack = itemstack1.copy();
-				if (index < 1) {
-					if (!this.mergeItemStack(itemstack1, 1, this.inventorySlots.size(), true)) {
+				if (index < 3) {
+					if (!this.mergeItemStack(itemstack1, 3, this.inventorySlots.size(), true)) {
 						return ItemStack.EMPTY;
 					}
 					slot.onSlotChange(itemstack1, itemstack);
-				} else if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
-					if (index < 1 + 27) {
-						if (!this.mergeItemStack(itemstack1, 1 + 27, this.inventorySlots.size(), true)) {
+				} else if (!this.mergeItemStack(itemstack1, 0, 3, false)) {
+					if (index < 3 + 27) {
+						if (!this.mergeItemStack(itemstack1, 3 + 27, this.inventorySlots.size(), true)) {
 							return ItemStack.EMPTY;
 						}
 					} else {
-						if (!this.mergeItemStack(itemstack1, 1, 1 + 27, false)) {
+						if (!this.mergeItemStack(itemstack1, 3, 3 + 27, false)) {
 							return ItemStack.EMPTY;
 						}
 					}
@@ -312,6 +334,26 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 			int k = (this.width - this.xSize) / 2;
 			int l = (this.height - this.ySize) / 2;
 			this.blit(k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+			if (ZeroPercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery0.png"));
+				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
+			}
+			if (TwentyFivePercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery25.png"));
+				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
+			}
+			if (FiftyPercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery50.png"));
+				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
+			}
+			if (SeventyFivePercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery75.png"));
+				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
+			}
+			if (OneHundredPercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
+				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery100.png"));
+				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
+			}
 		}
 
 		@Override
@@ -332,6 +374,16 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 		protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 			this.font.drawString("Input YellowStone Here", 6, 52, -10066432);
 			this.font.drawString("Sludge Pump GUI", 47, 6, -12829636);
+			this.font.drawString("" + (new Object() {
+				public int getFluidTankLevel(BlockPos pos, int tank) {
+					AtomicInteger _retval = new AtomicInteger(0);
+					TileEntity _ent = world.getTileEntity(pos);
+					if (_ent != null)
+						_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
+								.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
+					return _retval.get();
+				}
+			}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), 1)) + "", 6, 66, -16760777);
 		}
 
 		@Override
