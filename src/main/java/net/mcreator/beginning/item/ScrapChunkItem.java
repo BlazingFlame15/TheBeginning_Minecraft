@@ -1,24 +1,29 @@
 
 package net.mcreator.beginning.item;
 
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.block.BlockState;
+
+import net.mcreator.beginning.itemgroup.BeginningItemGroup;
+import net.mcreator.beginning.BeginningModElements;
+
 @BeginningModElements.ModElement.Tag
 public class ScrapChunkItem extends BeginningModElements.ModElement {
-
 	@ObjectHolder("beginning:scrap_chunk")
 	public static final Item block = null;
-
 	public ScrapChunkItem(BeginningModElements instance) {
 		super(instance, 67);
-
 	}
 
 	@Override
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
-
 	public static class ItemCustom extends Item {
-
 		public ItemCustom() {
 			super(new Item.Properties().group(BeginningItemGroup.tab).maxStackSize(16).rarity(Rarity.COMMON));
 			setRegistryName("scrap_chunk");
@@ -38,7 +43,5 @@ public class ScrapChunkItem extends BeginningModElements.ModElement {
 		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
 			return 1F;
 		}
-
 	}
-
 }
