@@ -35,12 +35,6 @@ import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.beginning.procedures.ZeroPercentProcedure;
-import net.mcreator.beginning.procedures.TwentyFivePercentProcedure;
-import net.mcreator.beginning.procedures.SeventyFivePercentProcedure;
-import net.mcreator.beginning.procedures.OneHundredPercentProcedure;
-import net.mcreator.beginning.procedures.FiftyPercentProcedure;
-import net.mcreator.beginning.item.SludgeResistantBucketItem;
 import net.mcreator.beginning.BeginningModElements;
 import net.mcreator.beginning.BeginningMod;
 
@@ -49,14 +43,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 import java.util.HashMap;
 
-import com.google.common.collect.ImmutableMap;
-
 @BeginningModElements.ModElement.Tag
-public class SludgepumpfuelGui extends BeginningModElements.ModElement {
+public class SludgePumpGUIGui extends BeginningModElements.ModElement {
 	public static HashMap guistate = new HashMap();
 	private static ContainerType<GuiContainerMod> containerType = null;
-	public SludgepumpfuelGui(BeginningModElements instance) {
-		super(instance, 49);
+	public SludgePumpGUIGui(BeginningModElements instance) {
+		super(instance, 64);
 		elements.addNetworkMessage(ButtonPressedMessage.class, ButtonPressedMessage::buffer, ButtonPressedMessage::new,
 				ButtonPressedMessage::handler);
 		elements.addNetworkMessage(GUISlotChangedMessage.class, GUISlotChangedMessage::buffer, GUISlotChangedMessage::new,
@@ -72,7 +64,7 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 
 	@SubscribeEvent
 	public void registerContainer(RegistryEvent.Register<ContainerType<?>> event) {
-		event.getRegistry().register(containerType.setRegistryName("sludgepumpfuel"));
+		event.getRegistry().register(containerType.setRegistryName("sludge_pump_gui"));
 	}
 	public static class GuiContainerModFactory implements IContainerFactory {
 		public GuiContainerMod create(int id, PlayerInventory inv, PacketBuffer extraData) {
@@ -129,15 +121,11 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 7, 31) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 7, 61) {
 			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 54, 31) {
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return (new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem() == stack.getItem());
-				}
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 7, 38) {
 			}));
-			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 103, 31) {
+			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 58, 49) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
 					return false;
@@ -319,7 +307,7 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 			this.xSize = 176;
 			this.ySize = 166;
 		}
-		private static final ResourceLocation texture = new ResourceLocation("beginning:textures/sludgepumpfuel.png");
+		private static final ResourceLocation texture = new ResourceLocation("beginning:textures/sludge_pump_gui.png");
 		@Override
 		public void render(int mouseX, int mouseY, float partialTicks) {
 			this.renderBackground();
@@ -334,26 +322,6 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 			int k = (this.width - this.xSize) / 2;
 			int l = (this.height - this.ySize) / 2;
 			this.blit(k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
-			if (ZeroPercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
-				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery0.png"));
-				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
-			}
-			if (TwentyFivePercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
-				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery25.png"));
-				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
-			}
-			if (FiftyPercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
-				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery50.png"));
-				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
-			}
-			if (SeventyFivePercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
-				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery75.png"));
-				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
-			}
-			if (OneHundredPercentProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world))) {
-				Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("beginning:textures/battery100.png"));
-				this.blit(this.guiLeft + 149, this.guiTop + 11, 0, 0, 16, 64, 16, 64);
-			}
 		}
 
 		@Override
@@ -372,8 +340,7 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 
 		@Override
 		protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-			this.font.drawString("Input YellowStone Here", 6, 52, -10066432);
-			this.font.drawString("Sludge Pump GUI", 47, 6, -12829636);
+			this.font.drawString("Sludge Pump", 58, 9, -10066330);
 			this.font.drawString("" + (new Object() {
 				public int getFluidTankLevel(BlockPos pos, int tank) {
 					AtomicInteger _retval = new AtomicInteger(0);
@@ -383,7 +350,7 @@ public class SludgepumpfuelGui extends BeginningModElements.ModElement {
 								.ifPresent(capability -> _retval.set(capability.getFluidInTank(tank).getAmount()));
 					return _retval.get();
 				}
-			}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), 1)) + "", 6, 66, -16760777);
+			}.getFluidTankLevel(new BlockPos((int) x, (int) y, (int) z), 1)) + "", 4, 26, -13434829);
 		}
 
 		@Override

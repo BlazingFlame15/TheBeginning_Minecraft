@@ -17,7 +17,6 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
@@ -40,6 +39,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -49,9 +49,9 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
-import net.mcreator.beginning.procedures.SludgepumpfuelprocedureProcedure;
+import net.mcreator.beginning.procedures.SludgePumpUpdateTickProcedure;
 import net.mcreator.beginning.itemgroup.BeginningItemGroup;
-import net.mcreator.beginning.gui.SludgepumpfuelGui;
+import net.mcreator.beginning.gui.SludgePumpGUIGui;
 import net.mcreator.beginning.BeginningModElements;
 
 import javax.annotation.Nullable;
@@ -72,7 +72,7 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 	@ObjectHolder("beginning:sludge_pump")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 	public SludgePumpBlock(BeginningModElements instance) {
-		super(instance, 48);
+		super(instance, 65);
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
 	}
 
@@ -90,11 +90,6 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).lightValue(0));
 			setRegistryName("sludge_pump");
-		}
-
-		@Override
-		public int tickRate(IWorldReader world) {
-			return 1;
 		}
 
 		@Override
@@ -126,7 +121,7 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				SludgepumpfuelprocedureProcedure.executeProcedure($_dependencies);
+				SludgePumpUpdateTickProcedure.executeProcedure($_dependencies);
 			}
 			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, this.tickRate(world));
 		}
@@ -147,7 +142,7 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 
 					@Override
 					public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
-						return new SludgepumpfuelGui.GuiContainerMod(id, inventory,
+						return new SludgePumpGUIGui.GuiContainerMod(id, inventory,
 								new PacketBuffer(Unpooled.buffer()).writeBlockPos(new BlockPos(x, y, z)));
 					}
 				}, new BlockPos(x, y, z));
@@ -177,10 +172,36 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 			TileEntity tileentity = world.getTileEntity(pos);
 			return tileentity == null ? false : tileentity.receiveClientEvent(eventID, eventParam);
 		}
+
+		@Override
+		public void onReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean isMoving) {
+			if (state.getBlock() != newState.getBlock()) {
+				TileEntity tileentity = world.getTileEntity(pos);
+				if (tileentity instanceof CustomTileEntity) {
+					InventoryHelper.dropInventoryItems(world, pos, (CustomTileEntity) tileentity);
+					world.updateComparatorOutputLevel(pos, this);
+				}
+				super.onReplaced(state, world, pos, newState, isMoving);
+			}
+		}
+
+		@Override
+		public boolean hasComparatorInputOverride(BlockState state) {
+			return true;
+		}
+
+		@Override
+		public int getComparatorInputOverride(BlockState blockState, World world, BlockPos pos) {
+			TileEntity tileentity = world.getTileEntity(pos);
+			if (tileentity instanceof CustomTileEntity)
+				return Container.calcRedstoneFromInventory((CustomTileEntity) tileentity);
+			else
+				return 0;
+		}
 	}
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
-		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(1, ItemStack.EMPTY);
+		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
 		protected CustomTileEntity() {
 			super(tileEntityType);
 		}
@@ -246,7 +267,7 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 
 		@Override
 		public Container createMenu(int id, PlayerInventory player) {
-			return new SludgepumpfuelGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
+			return new SludgePumpGUIGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
 		}
 
 		@Override
@@ -266,6 +287,8 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 
 		@Override
 		public boolean isItemValidForSlot(int index, ItemStack stack) {
+			if (index == 2)
+				return false;
 			return true;
 		}
 
@@ -281,13 +304,17 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 
 		@Override
 		public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
+			if (index == 0)
+				return false;
+			if (index == 1)
+				return false;
 			return true;
 		}
 		private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
-		private final FluidTank fluidTank = new FluidTank(8000, fs -> {
-			if (fs.getFluid() == SludgeBlock.flowing)
-				return true;
+		private final FluidTank fluidTank = new FluidTank(2000, fs -> {
 			if (fs.getFluid() == SludgeBlock.still)
+				return true;
+			if (fs.getFluid() == SludgeBlock.flowing)
 				return true;
 			return false;
 		}) {
