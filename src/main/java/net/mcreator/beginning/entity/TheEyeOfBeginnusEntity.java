@@ -72,10 +72,10 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void registerModels(ModelRegistryEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(entity, renderManager -> {
-			return new MobRenderer(renderManager, new Modelghasr4(), 3.1999999999999997f) {
+			return new MobRenderer(renderManager, new Modelbig_ghast_boi(), 3.1999999999999997f) {
 				@Override
 				public ResourceLocation getEntityTexture(Entity entity) {
-					return new ResourceLocation("beginning:textures/eye.png");
+					return new ResourceLocation("beginning:textures/sludgeanimate.png");
 				}
 			};
 		});
@@ -132,7 +132,7 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 
 		@Override
 		public net.minecraft.util.SoundEvent getHurtSound(DamageSource ds) {
-			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.ender_dragon.hurt"));
+			return (net.minecraft.util.SoundEvent) ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("beginning:eyebeginnushurtsound"));
 		}
 
 		@Override
@@ -227,14 +227,15 @@ public class TheEyeOfBeginnusEntity extends BeginningModElements.ModElement {
 	// Made with Blockbench 3.7.4
 	// Exported for Minecraft version 1.15
 	// Paste this class into your mod and generate all required imports
-	public static class Modelghasr4 extends EntityModel<Entity> {
+	public static class Modelbig_ghast_boi extends EntityModel<Entity> {
 		private final ModelRenderer bb_main;
-		public Modelghasr4() {
+		public Modelbig_ghast_boi() {
 			textureWidth = 16;
 			textureHeight = 16;
 			bb_main = new ModelRenderer(this);
 			bb_main.setRotationPoint(0.0F, 24.0F, 0.0F);
-			bb_main.setTextureOffset(0, 0).addBox(-25.0F, -70.0F, -25.0F, 50.0F, 50.0F, 50.0F, 0.0F, false);
+			bb_main.setTextureOffset(-104, -44).addBox(-15.0F, -30.0F, -15.0F, 30.0F, 30.0F, 30.0F, 0.0F, false);
+			bb_main.setTextureOffset(12, 14).addBox(-16.0F, -21.0F, -6.0F, 2.0F, 11.0F, 10.0F, 0.0F, false);
 		}
 
 		@Override
