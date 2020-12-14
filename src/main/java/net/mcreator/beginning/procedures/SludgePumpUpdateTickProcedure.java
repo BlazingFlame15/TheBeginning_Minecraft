@@ -28,11 +28,6 @@ public class SludgePumpUpdateTickProcedure extends BeginningModElements.ModEleme
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("itemstack") == null) {
-			if (!dependencies.containsKey("itemstack"))
-				System.err.println("Failed to load dependency itemstack for procedure SludgePumpUpdateTick!");
-			return;
-		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				System.err.println("Failed to load dependency x for procedure SludgePumpUpdateTick!");
@@ -53,7 +48,6 @@ public class SludgePumpUpdateTickProcedure extends BeginningModElements.ModEleme
 				System.err.println("Failed to load dependency world for procedure SludgePumpUpdateTick!");
 			return;
 		}
-		ItemStack itemstack = (ItemStack) dependencies.get("itemstack");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
@@ -66,7 +60,7 @@ public class SludgePumpUpdateTickProcedure extends BeginningModElements.ModEleme
 			$_dependencies.put("world", world);
 			YellowFuelProcedure.executeProcedure($_dependencies);
 		}
-		if (((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) y, (int) z)).getBlockState()).getBlock() == SludgeBlock.block
+		if (((/* @BlockState */(world.getFluidState(new BlockPos((int) x, (int) (y - 1), (int) z)).getBlockState()).getBlock() == SludgeBlock.block
 				.getDefaultState().getBlock()) && ((BeginningModVariables.MapVariables.get(world).GlobalFuel) > 0))) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
@@ -75,16 +69,19 @@ public class SludgePumpUpdateTickProcedure extends BeginningModElements.ModEleme
 					_ent.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, null)
 							.ifPresent(capability -> capability.fill(new FluidStack(SludgeBlock.still, _amount), IFluidHandler.FluidAction.EXECUTE));
 			}
-		}
-		if (((new Object() {
-			public ItemStack getItemStack(int sltid, ItemStack _isc) {
+		} else if (((new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-				_isc.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-					_retval.set(capability.getStackInSlot(sltid).copy());
-				});
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
 				return _retval.get();
 			}
-		}.getItemStack((int) (1), (itemstack))).getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1)).getItem())) {
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == new ItemStack(SludgeResistantBucketItem.block, (int) (1))
+				.getItem())) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {

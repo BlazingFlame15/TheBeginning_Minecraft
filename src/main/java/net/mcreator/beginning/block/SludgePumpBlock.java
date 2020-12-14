@@ -117,7 +117,6 @@ public class SludgePumpBlock extends BeginningModElements.ModElement {
 			int z = pos.getZ();
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("itemstack", itemstack);
 				$_dependencies.put("x", x);
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);

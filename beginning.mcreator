@@ -747,10 +747,6 @@
       "metadata": {
         "dependencies": [
           {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
             "name": "x",
             "type": "number"
           },
